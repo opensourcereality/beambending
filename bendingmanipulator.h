@@ -22,10 +22,16 @@ public:
     //virtual double getStress(double x) = 0;
     Beam *beam;
 
+
+
 private:
     double loadValue;
     double loadPosition;
     LoadOption loadOption;
+
+    virtual double getUniformDeflection(double x) = 0;
+    virtual double getSingleDeflection(double x) = 0;
+
 
 protected:
     //setters and getters
@@ -40,8 +46,7 @@ protected:
 
     bool isProperLoadPosition(double position);
 
-    virtual double getUniformDeflection(double x) = 0;
-    virtual double getSingleDeflection(double x) = 0;
+
 
 };
 

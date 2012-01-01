@@ -12,9 +12,6 @@ public:
 private:
     double getUniformDeflection(double x);
     double getSingleDeflection(double x);
-
-
-
 };
 
 #endif // CANTILEVER_H
