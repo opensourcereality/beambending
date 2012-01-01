@@ -15,11 +15,11 @@ public:
     void applyUniformLoad(double loadValue);
     bool applySingleLoad(double loadValue, double loadPosition);
 
-    virtual double getDeflection(double x);
-    virtual double getSlope(double x) = 0;
-    virtual double getMoment(double x) = 0;
-    virtual double getShearForce(double x) = 0;
-    virtual double getStress(double x) = 0;
+    double getDeflection(double x);
+    //virtual double getSlope(double x) = 0;
+    //virtual double getMoment(double x) = 0;
+    //virtual double getShearForce(double x) = 0;
+    //virtual double getStress(double x) = 0;
     Beam *beam;
 
 private:
