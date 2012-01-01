@@ -54,12 +54,45 @@ double CantileverBendingManipulator::getLoadValue() const {
     return loadValue;
 }
 
-void CantileverBendingManipulator::setLoadPosition(double loadPosition) {
-    this->loadPosition = loadPosition;
+bool CantileverBendingManipulator::setLoadPosition(double loadPosition) {
+    if(isProperLoadPosition(loadPosition)) {
+        this->loadPosition = loadPosition;
+        return true;
+    }
+    else
+        return false;
+
 }
 
 double CantileverBendingManipulator::getLoadPosition() const {
     return loadPosition;
+}
+
+void CantileverBendingManipulator::applyUniformLoad(double loadValue)
+{
+    setLoadOption(uniform);
+    setLoadValue(loadValue);
+}
+
+bool CantileverBendingManipulator::applySingleLoad(double loadValue, double loadPosition)
+{
+    if(isProperLoadPosition(loadPosition)){
+        setLoadOption(single);
+        setLoadValue(loadValue);
+        setLoadPosition(loadPosition);
+        return true;
+    }
+    else
+        return false;
+
+}
+
+bool CantileverBendingManipulator::isProperLoadPosition(double position)
+{
+    if( (position < 0) || (position> beam->GetLength()) )
+        return false;
+    else
+        return true;
 }
 
 

@@ -11,20 +11,29 @@ public:
     CantileverBendingManipulator(Beam *beam);
     double getDeflection(double x);
 
-    //setters and getters
-    void setLoadOption(LoadOption loadOption);
-    LoadOption getLoadOption() const;
-    void setLoadValue(double loadValue);
-    double getLoadValue() const;
-    void setLoadPosition(double loadPosition);
-    double getLoadPosition() const;
+    //load options interfaces
+    void applyUniformLoad(double loadValue);
+    bool applySingleLoad(double loadValue, double loadPosition);
 
 private:
     double loadValue;
     double loadPosition;
     LoadOption loadOption;
+
+    //utilities
+    bool isProperLoadPosition(double position);
     double getUniformDeflection(double x);
     double getSingleDeflection(double x);
+
+    //private setters and getters
+    void setLoadOption(LoadOption loadOption);
+    LoadOption getLoadOption() const;
+
+    void setLoadValue(double loadValue);
+    double getLoadValue() const;
+
+    bool setLoadPosition(double loadPosition);
+    double getLoadPosition() const;
 
 };
 
