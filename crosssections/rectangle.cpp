@@ -1,4 +1,5 @@
 #include "rectangle.h"
+#include "math.h"
 
 Rectangle::Rectangle(double width, double height)
 {
@@ -7,5 +8,5 @@ Rectangle::Rectangle(double width, double height)
 }
 
 double Rectangle::getInertiaAreaMoment(){
-    return (width * sqr(height) * height)/12;
+    return (width * height * height * height)/12;
 }

@@ -8,11 +8,11 @@ class Beam
 
 {
 public:
-    Beam(double length, CrossSection crossSection, Material material);
+    Beam(double length, CrossSection *crossSection, Material material);
 
 private:
     double length;
-    CrossSection crossSection;
+    CrossSection *crossSection;
     Material material;
 
 };

@@ -7,6 +7,7 @@ class Rectangle : public CrossSection
 {
 public:
     Rectangle(double width, double height);
+    double getInertiaAreaMoment();
 
 private:
     double width;

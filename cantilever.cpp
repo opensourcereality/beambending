@@ -1,5 +1,6 @@
 #include "cantilever.h"
 
-CantileverBendingManipulator::CantileverBendingManipulator()
+CantileverBendingManipulator::CantileverBendingManipulator(Beam *beam) :
+    BendingManipulator(beam)
 {
 }
