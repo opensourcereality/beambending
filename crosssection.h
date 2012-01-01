@@ -5,6 +5,7 @@ class CrossSection
 {
 public:
     CrossSection();
+    double getInertiaAreaMoment() = 0;
 };
 
 #endif // CROSSSECTION_H

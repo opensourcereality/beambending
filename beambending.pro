@@ -15,21 +15,49 @@ SOURCES += main.cpp\
     beam.cpp \
     material.cpp \
     crosssection.cpp \
-    load.cpp \
-    cantileverbeam.cpp \
-    simplysupportedbeam.cpp \
-    mixedsupportedbeam.cpp
+    crosssections/rectangle.cpp \
+    bendingmanipulator.cpp \
+    cantilever.cpp
 
 HEADERS  += mainwindow.h \
     beam.h \
     material.h \
     crosssection.h \
-    load.h \
-    cantileverbeam.h \
-    simplysupportedbeam.h \
-    mixedsupportedbeam.h
+    crosssections/rectangle.h \
+    bendingmanipulator.h \
+    cantilever.h
 
 FORMS    += mainwindow.ui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
