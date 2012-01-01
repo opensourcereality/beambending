@@ -9,7 +9,11 @@
 class Material
 {
 public:
-    Material();    
+    Material();
+    void SetYoungModulus(double youngModulus);
+    double GetYoungModulus() const;
+    void SetName(QString name);
+    QString GetName() const;
 
 private:
     QString name;

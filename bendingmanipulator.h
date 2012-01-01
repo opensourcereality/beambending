@@ -12,9 +12,8 @@ public:
     virtual double getMoment(double x) = 0;
     virtual double getShearForce(double x) = 0;
     virtual double getStress(double x) = 0;
-
-private:
     Beam *beam;
+
 
 };
 
