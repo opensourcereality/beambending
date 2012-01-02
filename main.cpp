@@ -21,6 +21,9 @@ int main(int argc, char *argv[])
 
     BendingManipulator *myBender = new CantileverBendingManipulator(myBeam);
 
+    //let's apply a load and bend the beam!
+    myBender->applyUniformLoad(20);
+
     double result = myBender->getDeflection(10);
 
     QVariant var(result);
