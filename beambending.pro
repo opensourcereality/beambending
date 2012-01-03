@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     crosssection.cpp \
     crosssections/rectangle.cpp \
     bendingmanipulator.cpp \
-    cantilever.cpp
+    cantilever.cpp \
+    crosssectionblock.cpp
 
 HEADERS  += mainwindow.h \
     beam.h \
@@ -25,9 +26,12 @@ HEADERS  += mainwindow.h \
     crosssection.h \
     crosssections/rectangle.h \
     bendingmanipulator.h \
-    cantilever.h
+    cantilever.h \
+    crosssectionblock.h
 
 FORMS    += mainwindow.ui
+
+
 
 
 

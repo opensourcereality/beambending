@@ -6,6 +6,7 @@
 #include "crosssections/rectangle.h"
 #include "cantilever.h"
 
+#include "crosssectionblock.h"
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +30,10 @@ int main(int argc, char *argv[])
     QVariant var(result);
 
     QPushButton button(var.toString());
-    button.show();
+    //button.show();
+
+    CrossSectionController *controller = new CrossSectionController(rectSection);
+    controller->show();
 
 
     return a.exec();
