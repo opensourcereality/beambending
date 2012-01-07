@@ -1,4 +1,5 @@
 #include <QtGui/QApplication>
+#include <QDesktopWidget>
 #include <QPushButton>
 #include <QVariant>
 
@@ -25,15 +26,15 @@ int main(int argc, char *argv[])
     //let's apply a load and bend the beam!
     myBender->applyUniformLoad(20);
 
-    double result = myBender->getDeflection(10);
+    double result = myBender->getDeflection(9);
 
     QVariant var(result);
 
     QPushButton button(var.toString());
-    //button.show();
+    button.show();
 
-    CrossSectionController *controller = new CrossSectionController(rectSection);
-    controller->show();
+//    CrossSectionController *controller = new CrossSectionController(rectSection);
+//    controller->show();
 
 
     return a.exec();
