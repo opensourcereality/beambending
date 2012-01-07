@@ -4,19 +4,21 @@
 #include <QWidget>
 #include "bendingmanipulator.h"
 #include "beam.h"
+class beam;
+class BendingManipulator;
 
 class shower : public QWidget
 {
     Q_OBJECT
 public:
-    explicit shower(bendingmanipulator *bender ,QWidget *parent = 0);
+    explicit shower(QWidget *parent = 0);
     
 signals:
     
 public slots:
 
 protected:
-    void paintEvent(beam *bentBeam,bendingmanipulator *bender, QPaintEvent *event);
+    void paintEvent(QPaintEvent *event);
     
 };
 

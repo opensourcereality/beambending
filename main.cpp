@@ -6,8 +6,8 @@
 #include "beam.h"
 #include "crosssections/rectangle.h"
 #include "cantilever.h"
-
 #include "crosssectionblock.h"
+#include "shower.h"
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +32,10 @@ int main(int argc, char *argv[])
 
     QPushButton button(var.toString());
     button.show();
+
+    shower beamShower;
+
+    beamShower.show();
 
 //    CrossSectionController *controller = new CrossSectionController(rectSection);
 //    controller->show();
