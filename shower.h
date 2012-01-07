@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "bendingmanipulator.h"
+#include "beam.h"
 
 class shower : public QWidget
 {
@@ -15,7 +16,7 @@ signals:
 public slots:
 
 protected:
-    void paintEvent(bendingmanipulator *bender, QPaintEvent *event);
+    void paintEvent(beam *bentBeam,bendingmanipulator *bender, QPaintEvent *event);
     
 };
 
