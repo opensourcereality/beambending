@@ -34,8 +34,8 @@ int main(int argc, char *argv[])
     button.show();
 
     shower beamShower;
-
     beamShower.show();
+    beamShower.paintEvent(NULL, 100, 100, 300, 100);
 
 //    CrossSectionController *controller = new CrossSectionController(rectSection);
 //    controller->show();
