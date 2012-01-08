@@ -3,8 +3,8 @@
 #include <QString>
 
 
-#define ALUMINUM 10.0
-#define CADIUM 4.6
+#define ALUMINUM 1.9
+#define CADIUM 2
 
 class Material
 {
