@@ -12,7 +12,7 @@ class shower : public QWidget
     Q_OBJECT
 public:
 
-    explicit shower(QWidget *parent = 0, BendingManipulator *bender = 0);
+    explicit shower(QWidget *parent = 0);
 
     
 signals:

@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     QPushButton button(var.toString());
     button.show();
 
-    shower beamShower(0, myBender);
+    shower beamShower;
 
     beamShower.show();
 
