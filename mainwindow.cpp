@@ -1,13 +1,33 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "iostream"
 
 #include "crosssections/rectangle.h"
+
+//including physics classes
+#include "beam.h"
+#include "bendingmanipulator.h"
+#include "cantilever.h"
+#include "material.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    for (int i=0; i< standardMaterials.count(); i++ )
+        ui->material->addItem(standardMaterials.get(i)->GetName());
+
+    //constructing initial beam and bending manipulator
+    //creating a beam, by constructing a material and a cross-section first...
+    CrossSection *rectSection = new Rectangle(1,1);
+
+    beam = new Beam(100, rectSection, standardMaterials.get(0));
+
+    bendingManipulator = new CantileverBendingManipulator(beam);
+
 }
 
 MainWindow::~MainWindow()
@@ -30,12 +50,8 @@ void MainWindow::on_length_valueChanged(double arg1)
 
 void MainWindow::on_material_currentIndexChanged(int index)
 {
-    double youngModulus[] = {
-        1.9, //aluminum
-        2,  //cadium
-    };
-
-    beam->GetMaterial().SetYoungModulus(youngModulus[index]);
+    //SEGMENTATION FAULT TO BE FIXED!
+    //beam->SetMaterial(m);
 
 }
 

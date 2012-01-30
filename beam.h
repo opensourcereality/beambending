@@ -8,36 +8,18 @@ class Beam
 
 {
 public:
-    Beam(double length, CrossSection *crossSection, Material material);
-
-    void SetMaterial(Material material) {
-        this->material = material;
-    }
-
-    Material GetMaterial() const {
-        return material;
-    }
-
-    void SetCrossSection(CrossSection* crossSection) {
-        this->crossSection = crossSection;
-    }
-
-    CrossSection* GetCrossSection() const {
-        return crossSection;
-    }
-
-    void SetLength(double length) {
-        this->length = length;
-    }
-
-    double GetLength() const {
-        return length;
-    }
+    Beam(double length, CrossSection *crossSection, Material *material);
+    void SetMaterial(Material *material);
+    Material* GetMaterial() const ;
+    void SetCrossSection(CrossSection* crossSection) ;
+    CrossSection* GetCrossSection() const ;
+    void SetLength(double length) ;
+    double GetLength() const ;
 
 private:
     double length;
     CrossSection *crossSection;
-    Material material;
+    Material *material;
 
 };
 

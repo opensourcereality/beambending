@@ -22,9 +22,7 @@ int main(int argc, char *argv[])
 
     //creating a beam, by constructing a material and a cross-section first...
     CrossSection *rectSection = new Rectangle(1,1);
-    Material aluminum;
-    aluminum.SetName("Aluminum");
-    aluminum.SetYoungModulus(ALUMINUM);
+    Material *aluminum = new Material("Aluminum", 1.9);
 
     Beam *myBeam = new Beam(100, rectSection, aluminum);
 
@@ -52,7 +50,6 @@ int main(int argc, char *argv[])
 
 
     MainWindow myWindow;
-
     myWindow.show();
 
 

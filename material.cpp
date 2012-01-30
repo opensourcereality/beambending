@@ -1,7 +1,9 @@
 #include "material.h"
 
-Material::Material()
+Material::Material(QString name, double youngModulus)
 {
+    this->name = name;
+    this->youngModulus = youngModulus;
 }
 
 void Material::SetYoungModulus(double youngModulus) {
@@ -21,3 +23,4 @@ void Material::SetName(QString name)
 {
     this->name = name;
 }
+

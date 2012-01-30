@@ -2,14 +2,10 @@
 #define MATERIAL_H
 #include <QString>
 
-
-#define ALUMINUM 1.9
-#define CADIUM 2
-
 class Material
 {
 public:
-    Material();
+    Material(QString name, double youngModulus);
     void SetYoungModulus(double youngModulus);
     double GetYoungModulus() const;
     void SetName(QString name);
@@ -20,5 +16,6 @@ private:
     double youngModulus;
 
 };
+
 
 #endif // MATERIAL_H
