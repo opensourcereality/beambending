@@ -33,7 +33,7 @@ HEADERS  += mainwindow.h \
     cantilever.h \
     crosssectionblock.h \
     beamblock.h \
-    beamcontroller.h
+    beamcontroller.h \
     shower.h
 
 FORMS    += mainwindow.ui \
