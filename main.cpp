@@ -9,10 +9,7 @@
 #include "cantilever.h"
 #include "shower.h"
 
-<<<<<<< HEAD
 using namespace std;
-=======
->>>>>>> fd521ee77e882991cd5944ed26a7dc8a21b67130
 
 int main(int argc, char *argv[])
 {
