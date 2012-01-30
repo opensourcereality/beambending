@@ -39,11 +39,6 @@ signals:
 
 public slots:
 
-private:
-    CrossSection *crossSection;
-    QLabel *label;
-    QSpinBox *spinBox;
-
 };
 
 

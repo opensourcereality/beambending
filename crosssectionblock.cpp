@@ -1,6 +1,5 @@
 #include "crosssectionblock.h"
 
-
 #include <QLayout>
 
 CrossSectionBlock::CrossSectionBlock(CrossSection *crossSection, QWidget *parent) :
@@ -13,27 +12,23 @@ CrossSectionBlock::CrossSectionBlock(CrossSection *crossSection, QWidget *parent
     QVBoxLayout *layout = new QVBoxLayout(parent);
     layout->addWidget(view);
     layout->addWidget(controller);
+    this->setLayout(layout);
 
 }
 
 CrossSectionController::CrossSectionController(CrossSection *crossSection, QWidget *parent) :
     QWidget(parent)
 {
-    this->crossSection = crossSection;
+    setFixedSize(30, 60);
+    setPalette(QPalette(QColor(250, 250, 200)));
+    setAutoFillBackground(true);
 
-    label = new QLabel(this);
-    label->setText("Amjad");
-    spinBox = new QSpinBox(this);
-    spinBox->setValue(90);
-    QHBoxLayout *layout = new QHBoxLayout(this);
-
-    layout->addWidget(label);
-    layout->addWidget(spinBox);
-
-    this->setLayout(layout);
 }
 
 CrossSectionView::CrossSectionView(CrossSection *crossSection, QWidget *parent) :
     QWidget(parent)
 {
+    setPalette(QPalette(QColor(100, 100, 8)));
+    setAutoFillBackground(true);
+    setFixedSize(30,30);
 }

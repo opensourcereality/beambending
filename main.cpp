@@ -6,7 +6,8 @@
 #include "crosssections/rectangle.h"
 #include "cantilever.h"
 
-#include "crosssectionblock.h"
+#include "beamblock.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -32,9 +33,9 @@ int main(int argc, char *argv[])
     QPushButton button(var.toString());
     //button.show();
 
-    CrossSectionController *controller = new CrossSectionController(rectSection);
-    controller->show();
+    BeamBlock block(myBeam);
 
+    block.show();
 
     return a.exec();
 }
