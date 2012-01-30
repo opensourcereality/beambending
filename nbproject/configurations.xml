@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="79">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="beambending" root=".">
+      <df name="crosssections">
+        <in>rectangle.cpp</in>
+        <in>rectangle.h</in>
+      </df>
+      <in>beam.cpp</in>
+      <in>beam.h</in>
+      <in>bendingmanipulator.cpp</in>
+      <in>bendingmanipulator.h</in>
+      <in>cantilever.cpp</in>
+      <in>cantilever.h</in>
+      <in>crosssection.cpp</in>
+      <in>crosssection.h</in>
+      <in>main.cpp</in>
+      <in>mainwindow.cpp</in>
+      <in>mainwindow.h</in>
+      <in>material.cpp</in>
+      <in>material.h</in>
+      <in>object.h</in>
+      <in>simplesupportedbeam.cpp</in>
+      <in>simplesupportedbeam.h</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+      <itemPath>beambending.pro</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+    </conf>
+  </confs>
+</configurationDescriptor>
