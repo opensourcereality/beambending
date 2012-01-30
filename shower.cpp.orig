@@ -6,10 +6,10 @@ using namespace std;
 shower::shower(QWidget *parent, BendingManipulator *bender):
     QWidget(parent)
 {
-    this->myBender = bender;
+    myBender = bender;
 }
 
-void shower::paintEvent(QPaintEvent *event)
+void shower::paintEvent(QPaintEvent *event, double x1, double y1, double x2, double y2)
 {
     QPen pen(Qt::red, 2, Qt::SolidLine);
 

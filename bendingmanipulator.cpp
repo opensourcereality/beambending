@@ -1,8 +1,11 @@
 #include "bendingmanipulator.h"
+#include <iostream>
+using namespace std;
 
 BendingManipulator::BendingManipulator(Beam *beam)
 {
     this->beam = beam;
+    cout << "from constructer, beam Length =" << beam->GetLength() << endl;
 }
 
 void BendingManipulator::applyUniformLoad(double loadValue)
@@ -13,11 +16,12 @@ void BendingManipulator::applyUniformLoad(double loadValue)
 
 double BendingManipulator::getDeflection(double x)
 {
+    cout << "got here :)\n";
     switch(getLoadOption()){
-    case uniform: return getUniformDeflection(x);
-    case single: return getSingleDeflection(x);
+    case uniform: return getUniformDeflection(x);break;
+    case single: return getSingleDeflection(x);break;
     }
-
+    return 0;
 }
 
 bool BendingManipulator::applySingleLoad(double loadValue, double loadPosition)
