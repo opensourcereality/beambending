@@ -32,6 +32,10 @@ private slots:
 
     void on_height_valueChanged(double arg1);
 
+    void on_uniformLoad_clicked(bool checked);
+
+    void on_singleLoad_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
 

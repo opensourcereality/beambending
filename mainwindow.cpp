@@ -50,3 +50,15 @@ void MainWindow::on_height_valueChanged(double arg1)
     Rectangle *rectangle =  new Rectangle(ui->width->value(), arg1);
     beam->SetCrossSection(rectangle);
 }
+
+void MainWindow::on_uniformLoad_clicked(bool checked)
+{
+    if(checked)
+        bendingManipulator->applyUniformLoad(ui->loadValue->value());
+}
+
+void MainWindow::on_singleLoad_clicked(bool checked)
+{
+    if(checked)
+        bendingManipulator->applySingleLoad(ui->loadValue->value());
+}
