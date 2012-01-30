@@ -8,6 +8,7 @@ class Rectangle : public CrossSection
 public:
     Rectangle(double width, double height);
     double getInertiaAreaMoment();
+    void setSize(double width, double height);
 
 private:
     double width;

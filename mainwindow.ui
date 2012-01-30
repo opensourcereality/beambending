@@ -39,17 +39,12 @@
             <widget class="QComboBox" name="material">
              <item>
               <property name="text">
-               <string>Iron</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
                <string>Aluminum</string>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>Gold</string>
+               <string>Cadium</string>
               </property>
              </item>
             </widget>
@@ -98,6 +93,9 @@
             <widget class="QRadioButton" name="cantiliver">
              <property name="text">
               <string>Cantiliver</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
