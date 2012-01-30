@@ -23,9 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //constructing initial beam and bending manipulator
     //creating a beam, by constructing a material and a cross-section first...
     CrossSection *rectSection = new Rectangle(1,1);
-
     beam = new Beam(100, rectSection, standardMaterials.get(0));
-
     bendingManipulator = new CantileverBendingManipulator(beam);
 
 }
@@ -51,20 +49,7 @@ void MainWindow::on_length_valueChanged(double arg1)
 void MainWindow::on_material_currentIndexChanged(int index)
 {
     //SEGMENTATION FAULT TO BE FIXED!
-    //beam->SetMaterial(m);
-
-}
-
-void MainWindow::on_width_valueChanged(double arg1)
-{
-    Rectangle *rectangle =  new Rectangle(arg1, ui->height->value());
-    beam->SetCrossSection(rectangle);
-}
-
-void MainWindow::on_height_valueChanged(double arg1)
-{
-    Rectangle *rectangle =  new Rectangle(ui->width->value(), arg1);
-    beam->SetCrossSection(rectangle);
+    //beam->SetMaterial(standardMaterials.get(index));
 }
 
 void MainWindow::on_uniformLoad_clicked(bool checked)

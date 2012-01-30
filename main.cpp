@@ -5,7 +5,9 @@
 #include <iostream>
 
 #include "beam.h"
+
 #include "crosssections/rectangle.h"
+
 #include "cantilever.h"
 #include "shower.h"
 
@@ -51,7 +53,6 @@ int main(int argc, char *argv[])
 
     MainWindow myWindow;
     myWindow.show();
-
 
 
     return a.exec();

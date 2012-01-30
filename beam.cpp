@@ -6,7 +6,7 @@ Beam::Beam(double length, CrossSection *crossSection, Material *material){
     SetMaterial(material);
 }
 
-void Beam::SetMaterial(Material *material) {
+void Beam::SetMaterial(Material* material) {
     this->material = material;
 }
 
