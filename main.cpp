@@ -1,12 +1,14 @@
 #include <QtGui/QApplication>
+#include <QDesktopWidget>
 #include <QPushButton>
 #include <QVariant>
 
 #include "beam.h"
 #include "crosssections/rectangle.h"
 #include "cantilever.h"
-
 #include "beamblock.h"
+#include "crosssectionblock.h"
+#include "shower.h"
 
 
 int main(int argc, char *argv[])
@@ -26,14 +28,22 @@ int main(int argc, char *argv[])
     //let's apply a load and bend the beam!
     myBender->applyUniformLoad(20);
 
-    double result = myBender->getDeflection(10);
+    double result = myBender->getDeflection(9);
 
     QVariant var(result);
 
     QPushButton button(var.toString());
-    //button.show();
+    button.show();
+
+    shower beamShower;
+    beamShower.show();
+    beamShower.paintEvent(NULL, 100, 100, 300, 100);
+
 
     BeamBlock block(myBeam);
+
+//    CrossSectionController *controller = new CrossSectionController(rectSection);
+//    controller->show();
 
     block.show();
 

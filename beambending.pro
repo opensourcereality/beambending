@@ -21,6 +21,7 @@ SOURCES += main.cpp\
     crosssectionblock.cpp \
     beamblock.cpp \
     beamcontroller.cpp \
+    shower.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -33,87 +34,8 @@ HEADERS  += mainwindow.h \
     crosssectionblock.h \
     beamblock.h \
     beamcontroller.h
+    shower.h
 
 FORMS    += mainwindow.ui \
     beamcontroller.ui
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
