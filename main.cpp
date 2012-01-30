@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
     //let's apply a load and bend the beam!
     myBender->applyUniformLoad(20);
 
+    cout << "test" << myBender->getDeflection(9) << endl;
     double result = myBender->getDeflection(9);
 
     QVariant var(result);
