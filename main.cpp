@@ -6,8 +6,6 @@
 #include "beam.h"
 #include "crosssections/rectangle.h"
 #include "cantilever.h"
-#include "beamblock.h"
-#include "crosssectionblock.h"
 #include "shower.h"
 
 
@@ -38,14 +36,6 @@ int main(int argc, char *argv[])
     shower beamShower;
     beamShower.show();
     beamShower.paintEvent(NULL, 100, 100, 300, 100);
-
-
-    BeamBlock block(myBeam);
-
-//    CrossSectionController *controller = new CrossSectionController(rectSection);
-//    controller->show();
-
-    block.show();
 
     return a.exec();
 }

@@ -18,13 +18,7 @@ SOURCES += main.cpp\
     crosssections/rectangle.cpp \
     bendingmanipulator.cpp \
     cantilever.cpp \
-    crosssectionblock.cpp \
-    beamblock.cpp \
-    beamcontroller.cpp \
-    shower.cpp \
-    ui/crosssectionblock.cpp \
-    ui/beamcontroller.cpp \
-    ui/beamblock.cpp
+    shower.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -34,16 +28,16 @@ HEADERS  += mainwindow.h \
     crosssections/rectangle.h \
     bendingmanipulator.h \
     cantilever.h \
-    crosssectionblock.h \
-    beamblock.h \
-    beamcontroller.h \
-    shower.h \
-    ui/crosssectionblock.h \
-    ui/beamcontroller.h \
-    ui/beamblock.h
+    shower.h
 
 FORMS    += mainwindow.ui \
     beamcontroller.ui
+
+
+
+
+
+
 
 
 
