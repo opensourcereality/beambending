@@ -13,7 +13,7 @@ public:
 
     //standard load options interfaces
     void applyUniformLoad(double loadValue);
-    bool applySingleLoad(double loadValue, double loadPosition);
+    bool applySingleLoad(double loadValue, double loadPosition = 0.5);
 
     double getDeflection(double x);
     //virtual double getSlope(double x) = 0;

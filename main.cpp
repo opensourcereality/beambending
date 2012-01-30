@@ -8,6 +8,8 @@
 #include "cantilever.h"
 #include "shower.h"
 
+#include "mainwindow.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -31,11 +33,17 @@ int main(int argc, char *argv[])
     QVariant var(result);
 
     QPushButton button(var.toString());
-    button.show();
+    //button.show();
 
     shower beamShower;
-    beamShower.show();
+    //beamShower.show();
     beamShower.paintEvent(NULL, 100, 100, 300, 100);
+
+    MainWindow myWindow;
+
+    myWindow.show();
+
+
 
     return a.exec();
 }

@@ -12,3 +12,16 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_loadValue_valueChanged(double arg1)
+{
+    if(ui->uniformLoad->isChecked())
+        bendingManipulator->applyUniformLoad(arg1);
+    else
+        bendingManipulator->applySingleLoad(arg1);
+}
+
+void MainWindow::on_length_valueChanged(double arg1)
+{
+    beam->SetLength(arg1);
+}
