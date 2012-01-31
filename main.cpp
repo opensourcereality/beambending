@@ -21,14 +21,16 @@ int main(int argc, char *argv[])
     aluminum.SetName("Aluminum");
     aluminum.SetYoungModulus(ALUMINUM);
 
-    Beam *myBeam = new Beam(100, rectSection, aluminum);
+    Beam *myBeam = new Beam(10, rectSection, aluminum);
 
     BendingManipulator *myBender = new CantileverBendingManipulator(myBeam);
 
     //let's apply a load and bend the beam!
-    myBender->applyUniformLoad(20);
-
-    cout << "test" << myBender->getDeflection(9) << endl;
+    myBender->applyUniformLoad(0.2);
+//    for (double i = 0; i < 10 ; i += 0.01)
+//    {
+//        cout << "test " << myBender->getDeflection(i) << endl;
+//    }
     double result = myBender->getDeflection(9);
 
     QVariant var(result);
