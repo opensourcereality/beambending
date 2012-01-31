@@ -18,7 +18,9 @@ SOURCES += main.cpp\
     crosssections/rectangle.cpp \
     bendingmanipulator.cpp \
     cantilever.cpp \
-    shower.cpp
+    shower.cpp \
+    standardmaterials.cpp \
+    crosssections/rectangleform.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -28,10 +30,18 @@ HEADERS  += mainwindow.h \
     crosssections/rectangle.h \
     bendingmanipulator.h \
     cantilever.h \
-    shower.h
+    shower.h \
+    standardmaterials.h \
+    crosssections/rectangleform.h
 
 FORMS    += mainwindow.ui \
-    beamcontroller.ui
+    crosssections/rectangleform.ui
+
+
+
+
+
+
 
 
 

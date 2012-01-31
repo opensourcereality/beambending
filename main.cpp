@@ -5,11 +5,18 @@
 #include <iostream>
 
 #include "beam.h"
+
 #include "crosssections/rectangle.h"
+
 #include "cantilever.h"
 #include "shower.h"
 
+
+#include "mainwindow.h"
+
+
 using namespace std;
+
 
 int main(int argc, char *argv[])
 {
@@ -17,9 +24,7 @@ int main(int argc, char *argv[])
 
     //creating a beam, by constructing a material and a cross-section first...
     CrossSection *rectSection = new Rectangle(1,1);
-    Material aluminum;
-    aluminum.SetName("Aluminum");
-    aluminum.SetYoungModulus(ALUMINUM);
+    Material *aluminum = new Material("Aluminum", 1.9);
 
     Beam *myBeam = new Beam(10, rectSection, aluminum);
 
@@ -36,11 +41,21 @@ int main(int argc, char *argv[])
     QVariant var(result);
     cout << "result is:" << result << endl;
     QPushButton button(var.toString());
-    button.show();
+    //button.show();
+
+
+    //shower beamShower;
+    //beamShower.show();
+    //beamShower.paintEvent(NULL, 100, 100, 300, 100);
 
     shower beamShower(0, myBender);
 
     beamShower.show();
+
+
+    MainWindow myWindow;
+    myWindow.show();
+
 
     return a.exec();
 }
