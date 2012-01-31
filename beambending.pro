@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     cantilever.cpp \
     shower.cpp \
     standardmaterials.cpp \
-    crosssections/rectangleform.cpp
+    crosssections/rectangleform.cpp \
+    standardcrosssections.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -32,10 +33,13 @@ HEADERS  += mainwindow.h \
     cantilever.h \
     shower.h \
     standardmaterials.h \
-    crosssections/rectangleform.h
+    crosssections/rectangleform.h \
+    standardcrosssections.h
 
 FORMS    += mainwindow.ui \
     crosssections/rectangleform.ui
+
+
 
 
 

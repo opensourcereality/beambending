@@ -32,7 +32,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->crossSectionLayout->addWidget(rectSection->getForm());
 
 
-
 }
 
 MainWindow::~MainWindow()
