@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     BendingManipulator *myBender = new CantileverBendingManipulator(myBeam);
 
     //let's apply a load and bend the beam!
-    myBender->applyUniformLoad(0.2);
+    myBender->applyUniformLoad(1.5);
 //    for (double i = 0; i < 10 ; i += 0.01)
 //    {
 //        cout << "test " << myBender->getDeflection(i) << endl;
