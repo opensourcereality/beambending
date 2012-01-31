@@ -13,6 +13,7 @@
 #include "crosssections/rectangle.h"
 
 MainWindow::MainWindow(QWidget *parent) :
+    initialized(false),
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -20,6 +21,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     for (int i=0; i< standardMaterials.count(); i++ )
         ui->material->addItem(standardMaterials.get(i)->GetName());
+
+    for (int i=0; i< standardCrossSections.count(); i++ )
+        ui->crossSection->addItem(standardCrossSections.get(i)->getName());
+
 
     //constructing initial beam and bending manipulator
     //creating a beam, by constructing a material and a cross-section first...
@@ -31,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     rectSection->constructForm(this);
     ui->crossSectionLayout->addWidget(rectSection->getForm());
 
+    initialized = true;
 
 }
 
@@ -54,8 +60,8 @@ void MainWindow::on_length_valueChanged(double arg1)
 
 void MainWindow::on_material_currentIndexChanged(int index)
 {
-    //SEGMENTATION FAULT TO BE FIXED!
-    //beam->SetMaterial(standardMaterials.get(index));
+    if(initialized)
+        beam->SetMaterial(standardMaterials.get(index));
 }
 
 void MainWindow::on_uniformLoad_clicked(bool checked)
@@ -68,4 +74,10 @@ void MainWindow::on_singleLoad_clicked(bool checked)
 {
     if(checked)
         bendingManipulator->applySingleLoad(ui->loadValue->value());
+}
+
+void MainWindow::on_crossSection_currentIndexChanged(int index)
+{
+    if(initialized)
+        beam->SetCrossSection(standardCrossSections.get(index));
 }

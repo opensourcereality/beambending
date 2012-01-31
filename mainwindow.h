@@ -5,6 +5,7 @@
 #include "bendingmanipulator.h"
 #include "beam.h"
 #include "standardmaterials.h"
+#include "standardcrosssections.h"
 
 
 namespace Ui {
@@ -20,6 +21,9 @@ public:
     Beam *beam;
     BendingManipulator *bendingManipulator;
     StandardMaterials standardMaterials;
+    StandardCrossSections standardCrossSections;
+    bool initialized;
+
     ~MainWindow();
 
 
@@ -31,6 +35,8 @@ private slots:
     void on_singleLoad_clicked(bool checked);
 
 
+
+    void on_crossSection_currentIndexChanged(int index);
 
 private:
     Ui::MainWindow *ui;
