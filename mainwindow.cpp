@@ -96,7 +96,7 @@ void MainWindow::on_crossSection_currentIndexChanged(int index)
 {
     if(initialized){
         beam->SetCrossSection(standardCrossSections.get(index));
-        //emit modelUpdated();
+        emit modelUpdated();
     }
 }
 
