@@ -8,5 +8,5 @@ StandardCrossSections::StandardCrossSections()
 
     //standard cross sections
     crossSection = new CrossSection *[n];
-    material[0] = new Rectangle(1,1);
+    crossSection[0] = new Rectangle(1,1);
 }
