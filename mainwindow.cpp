@@ -10,6 +10,7 @@
 #include "cantilever.h"
 #include "material.h"
 
+#include "crosssections/rectangle.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -25,6 +26,12 @@ MainWindow::MainWindow(QWidget *parent) :
     CrossSection *rectSection = new Rectangle(1,1);
     beam = new Beam(100, rectSection, standardMaterials.get(0));
     bendingManipulator = new CantileverBendingManipulator(beam);
+
+    Rectangle *rect = new Rectangle(1,1);
+    rectSection->constructForm(this);
+    ui->crossSectionLayout->addWidget(rectSection->getForm());
+
+
 
 }
 
