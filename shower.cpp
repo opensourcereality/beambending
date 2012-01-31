@@ -7,6 +7,7 @@ shower::shower(QWidget *parent, BendingManipulator *bender):
     QWidget(parent)
 {
     this->myBender = bender;
+    this->setFixedSize(700,350);
 }
 
 void shower::paintEvent(QPaintEvent *event)
@@ -33,7 +34,6 @@ void shower::paintEvent(QPaintEvent *event)
 
         x1 = x2;
         y1 = y2;
-
 
     }
 }

@@ -48,9 +48,9 @@ int main(int argc, char *argv[])
     //beamShower.show();
     //beamShower.paintEvent(NULL, 100, 100, 300, 100);
 
-    shower beamShower(0, myBender);
+    //shower beamShower(0, myBender);
 
-    beamShower.show();
+    //beamShower.show();
 
 
     MainWindow myWindow;
