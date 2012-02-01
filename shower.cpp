@@ -1,5 +1,6 @@
 #include "shower.h"
 #include <QPainter>
+#include <QBrush>
 #include <iostream>
 using namespace std;
 
@@ -73,6 +74,10 @@ void shower::paintEvent(QPaintEvent *event)
 
         x1 = x2;
         y1 = y2;
-
     }
+    QBrush brush(Qt::black);
+    pen.setColor(Qt::black);
+    painter.setPen(pen);
+    painter.setBrush(brush);
+    painter.drawRect(90, 90, 10, 20);
 }
