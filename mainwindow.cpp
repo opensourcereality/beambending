@@ -51,6 +51,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QObject::connect(this, SIGNAL(modelUpdated()), this, SLOT(updateBendingWidget()));
 
+    //validations
+    ui->loadPositionBox->setRange(0, beam->GetLength());
+
     initialized = true;
 }
 
@@ -72,6 +75,7 @@ void MainWindow::on_loadValue_valueChanged(double arg1)
 void MainWindow::on_length_valueChanged(double arg1)
 {
     beam->SetLength(arg1);
+    ui->loadPositionBox->setRange(0, beam->GetLength());
     emit modelUpdated();
 }
 
@@ -86,6 +90,7 @@ void MainWindow::on_uniformLoad_clicked(bool checked)
 {
     if(checked) {
         load->applyUniformLoad(ui->loadValue->value());
+        ui->loadPosition->setDisabled(true);
         emit modelUpdated();
     }
 }
@@ -94,6 +99,7 @@ void MainWindow::on_singleLoad_clicked(bool checked)
 {
     if(checked){
         load->applySingleLoad(ui->loadValue->value(), ui->loadPosition->value() * 0.01 * beam->GetLength());
+        ui->loadPosition->setDisabled(false);
         emit modelUpdated();
     }
 }
@@ -125,4 +131,22 @@ void MainWindow::setCrossSection(int index)
     //crossSectionWidget->setHidden(true);
     //this->update();
     emit modelUpdated();
+}
+
+void MainWindow::on_loadPosition_sliderMoved(int position)
+{
+    load->setLoadPosition(position * 0.01 * beam->GetLength());
+    ui->loadPositionBox->setValue(position * 0.01 * beam->GetLength());
+
+    emit modelUpdated();
+}
+
+void MainWindow::on_loadPositionBox_valueChanged(double arg1)
+{
+    load->setLoadPosition(arg1);
+    ui->loadPosition->setValue(arg1 / beam->GetLength() * 100);
+
+    emit modelUpdated();
+
+
 }

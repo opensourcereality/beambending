@@ -16,7 +16,7 @@ double CantileverBendingManipulator::getSingleDeflection(double x)
 {
     double I = beam->GetMaterial()->GetYoungModulus(), E = beam->GetCrossSection()->getInertiaAreaMoment();
 
-    double constant = -(load->getLoadValue())/(6 * E * I);
+    double constant = (load->getLoadValue())/(6 * E * I);
 
     double loadPosition = load->getLoadPosition();
 

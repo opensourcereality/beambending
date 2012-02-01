@@ -41,6 +41,10 @@ private slots:
     void on_crossSection_currentIndexChanged(int index);
     void updateBendingWidget();
 
+    void on_loadPosition_sliderMoved(int position);
+
+    void on_loadPositionBox_valueChanged(double arg1);
+
 signals:
     void modelUpdated();
 
