@@ -21,8 +21,8 @@ shower::shower(QWidget *parent, BendingManipulator *bender):
 // setters
 void shower::setIntialDrawingPoint(double x, double y)
 {
-    intialDrawX = x;
-    intialDrawY = y;
+    initialDrawX = x;
+    initialDrawY = y;
 }
 void shower::setDrawResolution(double val)
 {
@@ -36,11 +36,11 @@ void shower::setMagnificationFactor(double val)
 // getters
 double shower::getIntialDrawingPointX()
 {
-    return intialDrawX;
+    return initialDrawX;
 }
 double shower::getIntialDrawingPointY()
 {
-    return intialDrawY;
+    return initialDrawY;
 }
 double shower::getDrawResolution()
 {
@@ -68,11 +68,23 @@ void shower::paintEvent(QPaintEvent *event)
     QPainter painter(this);
 
     painter.setPen(pen);
-    double x1 = intialDrawX, y1 = intialDrawY, x2 = 0, y2 = 0, beamLength = myBender->beam->GetLength();
+    double x1 = initialDrawX, y1 = initialDrawY, x2 = 0, y2 = 0, beamLength = myBender->beam->GetLength();
 
     visualBeamLength = 500;
     drawStep = beamLength / drawResolution;
 
+
+    // intial level line
+    QBrush brush(Qt::black);
+    painter.setBrush(brush);
+    pen.setStyle(Qt::DashLine);
+    pen.setColor(Qt::black);
+    painter.setPen(pen);
+    painter.drawLine(initialDrawX, initialDrawY, (initialDrawX+visualBeamLength), initialDrawY);
+
+    pen.setStyle(Qt::SolidLine);
+    pen.setColor(Qt::red);
+    painter.setPen(pen);
 
     for (double i = 0; i < beamLength ; i += drawStep)
     {
@@ -90,8 +102,8 @@ void shower::paintEvent(QPaintEvent *event)
 //            }
 //        }
         cout << "test " << myBender->getDeflection(i) << " i = " << i << endl;
-        x2 = intialDrawX + (i*((visualBeamLength)/(drawResolution * drawStep)));
-        y2 = intialDrawY + (myBender->getDeflection(i)/60);
+        x2 = initialDrawX + (i*((visualBeamLength)/(drawResolution * drawStep)));
+        y2 = initialDrawY + (myBender->getDeflection(i)/60);
 
         painter.drawLine(x1, y1, x2, y2);
 
@@ -102,7 +114,7 @@ void shower::paintEvent(QPaintEvent *event)
     }
 
     // drawing suspension area (rectangle)
-    QBrush brush(Qt::black);
+    brush.setColor(Qt::black);
     pen.setColor(Qt::black);
     painter.setPen(pen);
     painter.setBrush(brush);
@@ -110,11 +122,16 @@ void shower::paintEvent(QPaintEvent *event)
 
 
     // Load position Indecator
+    cout << "hey man" << endl;
+    brush.setColor(Qt::blue);
+    pen.setColor(Qt::blue);
+    painter.setBrush(brush);
+    painter.setPen(pen);
     double loadPos = myBender->load->getLoadPosition();
     cout << "LoadPos: " << loadPos << endl;
     QPointF tip;
-    qreal tipX =  intialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
-    qreal tipY = intialDrawY + (myBender->getDeflection(loadPos)/60);
+    qreal tipX =  initialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
+    qreal tipY = initialDrawY + (myBender->getDeflection(loadPos)/60);
     tip.setX(tipX);
     tip.setY(tipY);
     QPolygonF trianglePoints;

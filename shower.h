@@ -35,7 +35,7 @@ protected:
 
 private:
     BendingManipulator *myBender;
-    double intialDrawX, intialDrawY, drawStep, drawResolution, magnificationFactor, visualBeamLength;
+    double initialDrawX, initialDrawY, drawStep, drawResolution, magnificationFactor, visualBeamLength;
 
     // helping functions
     //void drawLoadIndecator(QPointF tip, QPainter &painter);
