@@ -115,7 +115,7 @@ void shower::paintEvent(QPaintEvent *event)
         trianglePoints << QPointF(tip.x()-8,tip.y()-20) << tip << QPointF(tip.x()+8,tip.y()-20);
         painter.drawConvexPolygon(trianglePoints);
 
-        cout << "test 3d branch :) :)" << endl;
+        cout << "test bendingIn3d branch :) :)" << endl;
     }
 
 }
