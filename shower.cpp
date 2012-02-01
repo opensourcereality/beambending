@@ -51,17 +51,6 @@ double shower::getMagnificationFactor()
     return magnificationFactor;
 }
 
-// helping functions
-//void shower::drawLoadIndecator(QPointF tip, QPainter &painter)
-//{
-//    // drawing the arrwo indicating single load
-
-//    QPolygonF trianglePoints;
-//    trianglePoints << QPointF(tip.x()-2,tip.y()-4) << tip << QPointF(tip.x()+2,tip.y()-4);
-//    painter.drawConvexPolygon(trianglePoints);
-
-//}
-
 void shower::paintEvent(QPaintEvent *event)
 {
     QPen pen(Qt::red, 2, Qt::SolidLine);
@@ -89,18 +78,6 @@ void shower::paintEvent(QPaintEvent *event)
     for (double i = 0; i < beamLength ; i += drawStep)
     {
         // we want to draw the beam 100 steps by drawing 1/100 of the beam every time using i the formula should change if i changes
-//        if (loadPos > 0)
-//        {
-//            if (i = loadPos)
-//            {
-//                //drawLoadIndecator(QPointF(x1, y1), painter);
-////                QPointF tip(x1, y1);
-////                QPolygonF trianglePoints;
-////                trianglePoints << QPointF(tip.x()-2,tip.y()-4) << tip << QPointF(tip.x()+2,tip.y()-4);
-////                painter.drawConvexPolygon(trianglePoints);
-
-//            }
-//        }
         cout << "test " << myBender->getDeflection(i) << " i = " << i << endl;
         x2 = initialDrawX + (i*((visualBeamLength)/(drawResolution * drawStep)));
         y2 = initialDrawY + (myBender->getDeflection(i)/60);
@@ -128,7 +105,6 @@ void shower::paintEvent(QPaintEvent *event)
     painter.setBrush(brush);
     painter.setPen(pen);
     double loadPos = myBender->load->getLoadPosition();
-    cout << "LoadPos: " << loadPos << endl;
     QPointF tip;
     qreal tipX =  initialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
     qreal tipY = initialDrawY + (myBender->getDeflection(loadPos)/60);
@@ -138,7 +114,4 @@ void shower::paintEvent(QPaintEvent *event)
     trianglePoints << QPointF(tip.x()-8,tip.y()-20) << tip << QPointF(tip.x()+8,tip.y()-20);
     painter.drawConvexPolygon(trianglePoints);
 
-
-
-    cout << "Load position: " << myBender->load->getLoadPosition() << endl;
 }
