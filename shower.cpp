@@ -56,15 +56,15 @@ void shower::paintEvent(QPaintEvent *event)
     painter.setPen(pen);
     double x1 = intialDrawX, y1 = intialDrawY, x2 = 0, y2 = 0, beamLength = myBender->beam->GetLength();
 
-    visualBeamLength = beamLength * magnificationFactor;
-    drawStep = 1 / (drawResolution / beamLength);
+    visualBeamLength = 500;
+    drawStep = beamLength / drawResolution;
 
     for (double i = 0; i < beamLength ; i += drawStep)
     {
         // we want to draw the beam 100 steps by drawing 1/100 of the beam every time using i the formula should change if i changes
 
         cout << "test " << myBender->getDeflection(i) << " i = " << i << endl;
-        x2 = intialDrawX + (i*((visualBeamLength)/beamLength));
+        x2 = intialDrawX + (i*((visualBeamLength)/(drawResolution * drawStep)));
         y2 = intialDrawY + (myBender->getDeflection(i)/60);
         painter.drawLine(x1, y1, x2, y2);
 
