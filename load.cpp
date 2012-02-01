@@ -87,3 +87,17 @@ bool Load::isSingleLoad() const
 bool Load::isUniformLoad() const {
     return this->uniformLoad;
 }
+
+bool Load::setLoadPositionRatio(double ratio)
+{
+    if (ratio < 0 || ratio > 100)
+        return false;
+
+    this->loadPosition = ratio * 0.01 *beam->GetLength();
+    return true;
+}
+
+double Load::getLoadPositionRatio() const
+{
+    return (this->loadPosition)/(beam->GetLength()) * 100;
+}

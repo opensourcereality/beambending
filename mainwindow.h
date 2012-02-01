@@ -52,10 +52,15 @@ signals:
 
 private:
     Ui::MainWindow *ui;
-    void setCrossSection(int index);
 
-
-
+    //controllers
+    void setCrossSection(int index = 0);
+    void setBeamLength(double length);
+    void setLoadValue(double loadValue);
+    void setLoadPosition(int ratio);
+    void setLoadPosition(double position);
+    void setLoadOptionUniform();
+    void setLoadOptionSingle();
 
 };
 
