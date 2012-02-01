@@ -22,7 +22,7 @@ Load::Load(Beam *beam, double loadValue, double loadPosition)
 bool Load::applySingleLoad(double loadValue, double loadPosition)
 {
     if(isProperLoadPosition(loadPosition)){
-        setLoadOption(single);
+        setLoadOptionSingle();
         setLoadValue(loadValue);
         setLoadPosition(loadPosition);
         return true;
@@ -34,20 +34,8 @@ bool Load::applySingleLoad(double loadValue, double loadPosition)
 
 void Load::applyUniformLoad(double loadValue)
 {
-    setLoadOption(uniform);
+    setLoadOptionUniform();
     setLoadValue(loadValue);
-}
-
-void Load::setLoadOption(LoadOption loadOption) {
-
-    if((loadOption != single) || (loadOption != uniform))
-        return;
-
-    this->loadOption = loadOption;
-}
-
-LoadOption Load::getLoadOption() const {
-    return loadOption;
 }
 
 void Load::setLoadValue(double loadValue) {
@@ -55,7 +43,7 @@ void Load::setLoadValue(double loadValue) {
 }
 
 double Load::getLoadValue() const {
-    return loadValue;
+    return this->loadValue;
 }
 
 bool Load::setLoadPosition(double loadPosition) {
@@ -79,4 +67,23 @@ bool Load::isProperLoadPosition(double position)
         return false;
     else
         return true;
+}
+
+void Load::setLoadOptionSingle()
+{
+    this->uniformLoad = false;
+}
+
+void Load::setLoadOptionUniform()
+{
+    this->uniformLoad = true;
+}
+
+bool Load::isSingleLoad() const
+{
+    return !(this->uniformLoad);
+}
+
+bool Load::isUniformLoad() const {
+    return this->uniformLoad;
 }

@@ -199,8 +199,11 @@
                     <property name="text">
                      <string>Uniform Load</string>
                     </property>
-                    <property name="checked">
+                    <property name="checkable">
                      <bool>true</bool>
+                    </property>
+                    <property name="checked">
+                     <bool>false</bool>
                     </property>
                    </widget>
                   </item>
@@ -208,6 +211,9 @@
                    <widget class="QRadioButton" name="singleLoad">
                     <property name="text">
                      <string>Single Load</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>

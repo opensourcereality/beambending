@@ -9,7 +9,7 @@ Circle::Circle(double radius)
 
 double Circle::getInertiaAreaMoment()
 {
-    return radius;
+    return 5/4 * (3.14) * radius * radius * radius * radius;
 }
 
 void Circle::constructForm(QWidget *parent)

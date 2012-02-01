@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //creating a beam, by constructing a material and a cross-section first...
 
     beam = new Beam(10, standardCrossSections.get(0), standardMaterials.get(0));
-    load = new Load(beam, 1.5);
+    load = new Load(beam, 1.5, 5);
 
     ui->length->setValue(10);
 

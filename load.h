@@ -3,7 +3,6 @@
 
 #include "beam.h"
 
-enum LoadOption {uniform, single};
 
 class Load
 {
@@ -12,9 +11,10 @@ private:
     Beam *beam;
     double loadValue;
     double loadPosition;
-    LoadOption loadOption;
+    bool uniformLoad;
 
 public:
+
     Load(Beam *beam);
     Load(Beam *beam, double loadValue);
     Load(Beam *beam, double loadValue, double loadPosition);
@@ -23,8 +23,10 @@ public:
     bool applySingleLoad(double loadValue, double loadPosition);
 
     //setters and getters
-    void setLoadOption(LoadOption loadOption);
-    LoadOption getLoadOption() const;
+    void setLoadOptionUniform();
+    void setLoadOptionSingle();
+    bool isUniformLoad() const;
+    bool isSingleLoad() const;
 
     void setLoadValue(double loadValue);
     double getLoadValue() const;
