@@ -2,81 +2,21 @@
 #include <iostream>
 using namespace std;
 
-BendingManipulator::BendingManipulator(Beam *beam)
+BendingManipulator::BendingManipulator(Beam *beam, Load *load)
 {
     this->beam = beam;
+    this->load = load;
     cout << "from constructer, beam Length =" << beam->GetLength() << endl;
 }
 
-void BendingManipulator::applyUniformLoad(double loadValue)
-{
-    setLoadOption(uniform);
-    setLoadValue(loadValue);
-}
 
 double BendingManipulator::getDeflection(double x)
 {
-    cout << "got here :)\n";
-    switch(getLoadOption()){
-    case uniform: return getUniformDeflection(x);break;
-    case single: return getSingleDeflection(x);break;
+    //cout << "got here :)\n";
+    switch(load->getLoadOption()){
+    case uniform: cout << "Uniform! \n"; return getUniformDeflection(x);  break;
+    case single: cout << "Signle load! \n";return getSingleDeflection(x); break;
     }
     return 0;
 }
 
-bool BendingManipulator::applySingleLoad(double loadValue, double loadPosition)
-{
-    if(isProperLoadPosition(loadPosition)){
-        setLoadOption(single);
-        setLoadValue(loadValue);
-        setLoadPosition(loadPosition);
-        return true;
-    }
-    else
-        return false;
-
-}
-
-
-void BendingManipulator::setLoadOption(LoadOption loadOption) {
-
-    if((loadOption != single) || (loadOption != uniform))
-        return;
-
-    this->loadOption = loadOption;
-}
-
-LoadOption BendingManipulator::getLoadOption() const {
-    return loadOption;
-}
-
-void BendingManipulator::setLoadValue(double loadValue) {
-    this->loadValue = loadValue;
-}
-
-double BendingManipulator::getLoadValue() const {
-    return loadValue;
-}
-
-bool BendingManipulator::setLoadPosition(double loadPosition) {
-    if(isProperLoadPosition(loadPosition)) {
-        this->loadPosition = loadPosition;
-        return true;
-    }
-    else
-        return false;
-
-}
-
-double BendingManipulator::getLoadPosition() const {
-    return loadPosition;
-}
-
-
-bool BendingManipulator::isProperLoadPosition(double position)
-{
-    if( (position < 0) || (position> beam->GetLength()) )
-        return false;
-    else
-        return true;
-}

@@ -21,11 +21,11 @@ void shower::paintEvent(QPaintEvent *event)
     //cout << "Beam length =" << beamLength << endl;
     bool allow = 0;
     allow = 1;
-    cout << "allow: " << allow << endl;
+    //cout << "allow: " << allow << endl;
     for (double i = 0; i < 10 ; i += 0.01)
     {
         // we want to draw the beam 100 steps by drawing 1/100 of the beam every time using i the formula should change if i changes
-        cout << "test " << myBender->getDeflection(i) << " i = " << i << endl;
+        //cout << "test " << myBender->getDeflection(i) << " i = " << i << endl;
         x2 = 100 + (i*((beamLength*50)/10));
         y2 = 100 + (myBender->getDeflection(i)/60);
         painter.drawLine(x1, y1, x2, y2);

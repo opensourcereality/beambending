@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "beam.h"
+#include "load.h"
 
 #include "crosssections/rectangle.h"
 
@@ -27,11 +28,10 @@ int main(int argc, char *argv[])
     Material *aluminum = new Material("Aluminum", 1.9);
 
     Beam *myBeam = new Beam(10, rectSection, aluminum);
+    Load *myLoad = new Load(myBeam, 1.5);
 
-    BendingManipulator *myBender = new CantileverBendingManipulator(myBeam);
+    BendingManipulator *myBender = new CantileverBendingManipulator(myBeam, myLoad);
 
-    //let's apply a load and bend the beam!
-    myBender->applyUniformLoad(1.5);
 //    for (double i = 0; i < 10 ; i += 0.01)
 //    {
 //        cout << "test " << myBender->getDeflection(i) << endl;
