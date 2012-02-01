@@ -14,6 +14,17 @@ public:
 
     explicit shower(QWidget *parent = 0, BendingManipulator *bender = 0);
 
+    // setters
+    void setIntialDrawingPoint(double x = 100, double y = 100);
+    void setDrawResolution(double val = 1000);
+    void setMagnificationFactor(double val = 50);
+
+    // getters
+    double getIntialDrawingPointX();
+    double getIntialDrawingPointY();
+    double getDrawResolution();
+    double getMagnificationFactor();
+
     
 signals:
     
@@ -24,7 +35,7 @@ protected:
 
 private:
     BendingManipulator *myBender;
-    double intialDrawX, intialDrawY, drawStep, drawResoulution, magnificationFactor, visualBeamLength;
+    double intialDrawX, intialDrawY, drawStep, drawResolution, magnificationFactor, visualBeamLength;
 
     
 };
