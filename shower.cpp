@@ -86,7 +86,7 @@ void shower::paintEvent(QPaintEvent *event)
         x2 = intialDrawX + (i*((visualBeamLength)/(drawResolution * drawStep)));
         y2 = intialDrawY + (myBender->getDeflection(i)/60);
 
-        //painter.drawLine(x1, y1, x2, y2);
+        painter.drawLine(x1, y1, x2, y2);
 
         cout << "x1 = " << x1 << " y1 = " << y1 << " x2 = "  << x2 << " y2 = " << y2 << " i: " << i << endl;
 
