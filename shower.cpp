@@ -73,14 +73,21 @@ void shower::paintEvent(QPaintEvent *event)
     visualBeamLength = 500;
     drawStep = beamLength / drawResolution;
 
-    //double loadPos = myBender->load->getLoadPosition();
 
     for (double i = 0; i < beamLength ; i += drawStep)
     {
         // we want to draw the beam 100 steps by drawing 1/100 of the beam every time using i the formula should change if i changes
-//        if (i = loadPos)
+//        if (loadPos > 0)
 //        {
-//            //drawLoadIndecator(QPointF(x1, y1), painter);
+//            if (i = loadPos)
+//            {
+//                //drawLoadIndecator(QPointF(x1, y1), painter);
+////                QPointF tip(x1, y1);
+////                QPolygonF trianglePoints;
+////                trianglePoints << QPointF(tip.x()-2,tip.y()-4) << tip << QPointF(tip.x()+2,tip.y()-4);
+////                painter.drawConvexPolygon(trianglePoints);
+
+//            }
 //        }
         cout << "test " << myBender->getDeflection(i) << " i = " << i << endl;
         x2 = intialDrawX + (i*((visualBeamLength)/(drawResolution * drawStep)));
@@ -101,6 +108,18 @@ void shower::paintEvent(QPaintEvent *event)
     painter.setBrush(brush);
     painter.drawRect(90, 90, 10, 20);
 
+
+    // Load position Indecator
+    double loadPos = myBender->load->getLoadPosition();
+    cout << "LoadPos: " << loadPos << endl;
+    QPointF tip;
+    qreal tipX =  intialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
+    qreal tipY = intialDrawY + (myBender->getDeflection(loadPos)/60);
+    tip.setX(tipX);
+    tip.setY(tipY);
+    QPolygonF trianglePoints;
+    trianglePoints << QPointF(tip.x()-8,tip.y()-20) << tip << QPointF(tip.x()+8,tip.y()-20);
+    painter.drawConvexPolygon(trianglePoints);
 
 
 
