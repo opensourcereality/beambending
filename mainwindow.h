@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "bendingmanipulator.h"
 #include "beam.h"
+#include "load.h"
 #include "standardmaterials.h"
 #include "standardcrosssections.h"
 #include "shower.h"
@@ -19,11 +20,14 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     Beam *beam;
+    Load *load;
     BendingManipulator *bendingManipulator;
     StandardMaterials standardMaterials;
     StandardCrossSections standardCrossSections;
     bool initialized;
     shower *bendingWidget;
+    QWidget *crossSectionWidget;
+
 
     ~MainWindow();
 
@@ -37,6 +41,10 @@ private slots:
     void on_crossSection_currentIndexChanged(int index);
     void updateBendingWidget();
 
+    void on_loadPosition_sliderMoved(int position);
+
+    void on_loadPositionBox_valueChanged(double arg1);
+
 signals:
     void modelUpdated();
 
@@ -44,6 +52,7 @@ signals:
 
 private:
     Ui::MainWindow *ui;
+    void setCrossSection(int index);
 
 
 

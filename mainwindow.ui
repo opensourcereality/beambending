@@ -199,8 +199,11 @@
                     <property name="text">
                      <string>Uniform Load</string>
                     </property>
-                    <property name="checked">
+                    <property name="checkable">
                      <bool>true</bool>
+                    </property>
+                    <property name="checked">
+                     <bool>false</bool>
                     </property>
                    </widget>
                   </item>
@@ -209,6 +212,9 @@
                     <property name="text">
                      <string>Single Load</string>
                     </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -216,12 +222,12 @@
                 <item row="1" column="0">
                  <layout class="QHBoxLayout" name="horizontalLayout_6">
                   <item>
-                   <widget class="QSlider" name="horizontalSlider">
+                   <widget class="QSlider" name="loadPosition">
                     <property name="enabled">
                      <bool>true</bool>
                     </property>
                     <property name="maximum">
-                     <number>99</number>
+                     <number>100</number>
                     </property>
                     <property name="singleStep">
                      <number>0</number>
@@ -232,7 +238,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+                   <widget class="QDoubleSpinBox" name="loadPositionBox"/>
                   </item>
                  </layout>
                 </item>

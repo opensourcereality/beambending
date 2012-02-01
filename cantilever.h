@@ -7,7 +7,7 @@
 class CantileverBendingManipulator : public BendingManipulator
 {
 public:
-    CantileverBendingManipulator(Beam *beam);
+    CantileverBendingManipulator(Beam *beam, Load *load);
 
 private:
     double getUniformDeflection(double x);
