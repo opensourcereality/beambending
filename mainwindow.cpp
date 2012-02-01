@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
         cs->constructForm();
         ui->crossSection->addItem(cs->getName());
     }
+    crossSectionWidget = standardCrossSections.get(0)->getForm();
 
 
     //constructing initial beam and bending manipulator
@@ -43,11 +44,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->loadValue->setValue(1.5);
 
-    crossSectionWidget = standardCrossSections.get(0)->getForm();
-    ui->crossSectionLayout->addWidget(crossSectionWidget);
 
     bendingWidget = new shower(this, bendingManipulator);
     ui->beamBending->addWidget(bendingWidget);
+    ui->crossSectionLayout->addWidget(crossSectionWidget, Qt::AlignTop);
 
     QObject::connect(this, SIGNAL(modelUpdated()), this, SLOT(updateBendingWidget()));
 
@@ -112,8 +112,17 @@ void MainWindow::updateBendingWidget()
 
 void MainWindow::setCrossSection(int index)
 {
+
+    ui->crossSectionLayout->removeWidget(crossSectionWidget);
+    crossSectionWidget->close();
+
     beam->SetCrossSection(standardCrossSections.get(index));
     crossSectionWidget = standardCrossSections.get(index)->getForm();
-    ui->crossSectionLayout->update();
+
+    crossSectionWidget->show();
+    ui->crossSectionLayout->addWidget(crossSectionWidget, Qt::AlignTop);
+
+    //crossSectionWidget->setHidden(true);
+    //this->update();
     emit modelUpdated();
 }
