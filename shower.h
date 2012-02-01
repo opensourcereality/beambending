@@ -24,7 +24,7 @@ protected:
 
 private:
     BendingManipulator *myBender;
-    double intialDrawX, intialDrawY;
+    double intialDrawX, intialDrawY, drawStep, drawResoulution, magnificationFactor, visualBeamLength;
 
     
 };
