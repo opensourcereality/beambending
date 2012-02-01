@@ -99,19 +99,21 @@ void shower::paintEvent(QPaintEvent *event)
 
 
     // Load position Indecator
-    cout << "hey man" << endl;
-    brush.setColor(Qt::blue);
-    pen.setColor(Qt::blue);
-    painter.setBrush(brush);
-    painter.setPen(pen);
-    double loadPos = myBender->load->getLoadPosition();
-    QPointF tip;
-    qreal tipX =  initialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
-    qreal tipY = initialDrawY + (myBender->getDeflection(loadPos)/60);
-    tip.setX(tipX);
-    tip.setY(tipY);
-    QPolygonF trianglePoints;
-    trianglePoints << QPointF(tip.x()-8,tip.y()-20) << tip << QPointF(tip.x()+8,tip.y()-20);
-    painter.drawConvexPolygon(trianglePoints);
+    if (myBender->load->isSingleLoad())
+    {
+        brush.setColor(Qt::blue);
+        pen.setColor(Qt::blue);
+        painter.setBrush(brush);
+        painter.setPen(pen);
+        double loadPos = myBender->load->getLoadPosition();
+        QPointF tip;
+        qreal tipX =  initialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
+        qreal tipY = initialDrawY + (myBender->getDeflection(loadPos)/60);
+        tip.setX(tipX);
+        tip.setY(tipY);
+        QPolygonF trianglePoints;
+        trianglePoints << QPointF(tip.x()-8,tip.y()-20) << tip << QPointF(tip.x()+8,tip.y()-20);
+        painter.drawConvexPolygon(trianglePoints);
+    }
 
 }
