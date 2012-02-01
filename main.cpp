@@ -32,21 +32,10 @@ int main(int argc, char *argv[])
 
     //let's apply a load and bend the beam!
     myBender->applyUniformLoad(1.5);
-//    for (double i = 0; i < 10 ; i += 0.01)
-//    {
-//        cout << "test " << myBender->getDeflection(i) << endl;
-//    }
     double result = myBender->getDeflection(9);
 
     QVariant var(result);
     cout << "result is:" << result << endl;
-    QPushButton button(var.toString());
-    //button.show();
-
-
-    //shower beamShower;
-    //beamShower.show();
-    //beamShower.paintEvent(NULL, 100, 100, 300, 100);
 
     //shower beamShower(0, myBender);
 
