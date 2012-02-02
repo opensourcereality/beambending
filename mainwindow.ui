@@ -203,17 +203,20 @@
                      <bool>true</bool>
                     </property>
                     <property name="checked">
-                     <bool>false</bool>
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QRadioButton" name="singleLoad">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
                     <property name="text">
                      <string>Single Load</string>
                     </property>
                     <property name="checked">
-                     <bool>true</bool>
+                     <bool>false</bool>
                     </property>
                    </widget>
                   </item>
@@ -224,12 +227,15 @@
                   <item>
                    <widget class="QSlider" name="loadPosition">
                     <property name="enabled">
-                     <bool>true</bool>
+                     <bool>false</bool>
                     </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>
                     <property name="singleStep">
+                     <number>0</number>
+                    </property>
+                    <property name="value">
                      <number>0</number>
                     </property>
                     <property name="orientation">
@@ -238,7 +244,11 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDoubleSpinBox" name="loadPositionBox"/>
+                   <widget class="QDoubleSpinBox" name="loadPositionBox">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>

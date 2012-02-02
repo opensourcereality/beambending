@@ -12,7 +12,6 @@
 
 #include "shower.h"
 
-#include "crosssections/rectangle.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     initialized(false),
@@ -45,13 +44,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //initializing the UI values
     ui->length->setValue(10);
+    ui->loadPositionBox->setValue(100);
+    ui->loadPositionBox->setValue(10);
     ui->loadValue->setValue(1.5);
 
 
     bendingWidget = new shower(this, bendingManipulator);
 
     ui->beamBending->addWidget(bendingWidget);
-    ui->crossSectionLayout->addWidget(crossSectionWidget, Qt::AlignTop);
+    ui->crossSectionLayout->addWidget(crossSectionWidget);
 
     QObject::connect(this, SIGNAL(modelUpdated()), this, SLOT(updateBendingWidget()));
 
@@ -95,6 +96,7 @@ void MainWindow::on_uniformLoad_clicked(bool checked)
     if(checked) {
         load->applyUniformLoad(ui->loadValue->value());
         ui->loadPosition->setDisabled(true);
+        ui->loadPositionBox->setDisabled(true);
         emit modelUpdated();
     }
 }
@@ -104,6 +106,7 @@ void MainWindow::on_singleLoad_clicked(bool checked)
     if(checked){
         load->applySingleLoad(ui->loadValue->value(), ui->loadPosition->value() * 0.01 * beam->GetLength());
         ui->loadPosition->setDisabled(false);
+        ui->loadPositionBox->setDisabled(false);
         emit modelUpdated();
     }
 }
@@ -112,7 +115,6 @@ void MainWindow::on_crossSection_currentIndexChanged(int index)
 {
     if(initialized)
         setCrossSection(index);
-
 }
 
 void MainWindow::updateBendingWidget()
@@ -132,8 +134,6 @@ void MainWindow::setCrossSection(int index)
     crossSectionWidget->show();
     ui->crossSectionLayout->addWidget(crossSectionWidget, Qt::AlignTop);
 
-    //crossSectionWidget->setHidden(true);
-    //this->update();
     emit modelUpdated();
 }
 
