@@ -8,7 +8,7 @@ class Beam
 
 {
 public:
-    Beam(double length, CrossSection *crossSection, Material *material);
+    Beam(double length = 0, CrossSection *crossSection = 0, Material *material = 0);
     void SetMaterial(Material *material);
     Material* GetMaterial() const ;
     void SetCrossSection(CrossSection* crossSection) ;

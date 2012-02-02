@@ -40,10 +40,9 @@ private slots:
     void on_singleLoad_clicked(bool checked);
     void on_crossSection_currentIndexChanged(int index);
     void updateBendingWidget();
-
     void on_loadPosition_sliderMoved(int position);
-
     void on_loadPositionBox_valueChanged(double arg1);
+    void onCrossSectionUpdated();
 
 signals:
     void modelUpdated();
@@ -55,6 +54,7 @@ private:
 
     //controllers
     void setCrossSection(int index = 0);
+    void setMaterial(int index = 0);
     void setBeamLength(double length);
     void setLoadValue(double loadValue);
     void setLoadPosition(double position);

@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
         CrossSection *cs = standardCrossSections.get(i);
         cs->constructForm();
         ui->crossSection->addItem(cs->getName());
-        QObject::connect(cs->getForm(), SIGNAL(crossSectionUpdated()), this, SLOT(update()));
+        QObject::connect(cs->getForm(), SIGNAL(crossSectionUpdated()), this, SLOT(onCrossSectionUpdated()));
     }
     crossSectionWidget = standardCrossSections.get(0)->getForm();
 
@@ -37,27 +37,30 @@ MainWindow::MainWindow(QWidget *parent) :
     //initializing the the models
         //constructing initial beam, load and bending manipulator
 
-    beam = new Beam(10, standardCrossSections.get(0), standardMaterials.get(0));
-    load = new Load(beam, 1.5, 5);
+    beam = new Beam();
+    load = new Load(beam);
     bendingManipulator = new CantileverBendingManipulator(beam, load);
 
+    //initializing the model and UI values
 
-    //initializing the UI values
-    setBeamLength(10);
-    setLoadPosition(beam->GetLength());
-    ui->loadValue->setValue(1.5);
+        //beam options
+        setBeamLength(10);
+        setCrossSection();
+        setMaterial();
+
+        //loading options
+        setLoadPosition(beam->GetLength());
+        setLoadValue(1.5);
+        setLoadOptionUniform();
 
 
+    //initializaing and connecting widgets
     bendingWidget = new shower(this, bendingManipulator);
-
     ui->beamBending->addWidget(bendingWidget);
     ui->crossSectionLayout->addWidget(crossSectionWidget);
-
     QObject::connect(this, SIGNAL(modelUpdated()), this, SLOT(updateBendingWidget()));
 
-    //validations
-    ui->loadPositionBox->setRange(0, beam->GetLength());
-
+    //variable used to disable invoking of some signals without the complete construction of the MainWindow
     initialized = true;
 }
 
@@ -68,12 +71,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_loadValue_valueChanged(double arg1)
 {
-    if(ui->uniformLoad->isChecked())
-        load->applyUniformLoad(arg1);
-    else
-        load->applySingleLoad(arg1, ui->loadPosition->value() * 0.01 * beam->GetLength());
-
-    emit modelUpdated();
+    setLoadValue(arg1);
 }
 
 void MainWindow::on_length_valueChanged(double arg1)
@@ -84,8 +82,7 @@ void MainWindow::on_length_valueChanged(double arg1)
 void MainWindow::on_material_currentIndexChanged(int index)
 {
     if(initialized)
-        beam->SetMaterial(standardMaterials.get(index));
-    emit modelUpdated();
+        setMaterial(index);
 }
 
 void MainWindow::on_uniformLoad_clicked(bool checked)
@@ -129,6 +126,10 @@ void MainWindow::updateBendingWidget()
     bendingWidget->update();
 }
 
+void MainWindow::onCrossSectionUpdated()
+{
+    emit modelUpdated();
+}
 
 //controllers
 void MainWindow::setBeamLength(double length)
@@ -160,5 +161,23 @@ void MainWindow::setCrossSection(int index)
     crossSectionWidget->show();
     ui->crossSectionLayout->addWidget(crossSectionWidget, Qt::AlignTop);
 
+    ui->crossSection->setCurrentIndex(index);
+
     emit modelUpdated();
 }
+
+void MainWindow::setLoadValue(double loadValue)
+{
+    load->setLoadValue(loadValue);
+    ui->loadValue->setValue(loadValue);
+    emit modelUpdated();
+}
+
+void MainWindow::setMaterial(int index)
+{
+    beam->SetMaterial(standardMaterials.get(index));
+    ui->material->setCurrentIndex(index);
+    emit modelUpdated();
+}
+
+
