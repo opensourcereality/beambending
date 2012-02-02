@@ -1,4 +1,8 @@
 #include <QtGui/QApplication>
+#include <QtOpenGL/QGLShader>
+#include <QtOpenGL/QGLShaderProgram>
+#include <QtOpenGL/QGLWidget>
+#include <QtOpenGL/QGLFormat>
 #include <QDesktopWidget>
 #include <QPushButton>
 #include <QVariant>
@@ -11,6 +15,7 @@
 
 #include "cantilever.h"
 #include "shower.h"
+#include "binding3d.h"
 
 
 #include "mainwindow.h"
@@ -50,6 +55,16 @@ int main(int argc, char *argv[])
 
     MainWindow myWindow;
     myWindow.show();
+
+//    if (!QGLFormat::hasOpenGL()) {
+//    std::cerr << "This system has no OpenGL support" << std::endl;
+//    return 1;
+//    }
+//    binding3d my3dShower;
+//    my3dShower.setWindowTitle(QObject::tr("Bending in 3D mode"));
+//    my3dShower.resize(600, 600);
+//    my3dShower.show();
+
 
 
     return a.exec();
