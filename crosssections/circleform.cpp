@@ -7,6 +7,7 @@ CircleForm::CircleForm(Circle *circle, QWidget *parent) :
 {
     ui->setupUi(this);
     this->circle = circle;
+    ui->doubleSpinBox->setValue(this->circle->getRadius());
 }
 
 CircleForm::~CircleForm()

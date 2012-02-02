@@ -19,8 +19,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    //initializing the UI
     ui->setupUi(this);
 
+    //initializing the standard materials and cross sections
     for (int i=0; i< standardMaterials.count(); i++ )
         ui->material->addItem(standardMaterials.get(i)->GetName());
 
@@ -33,20 +35,21 @@ MainWindow::MainWindow(QWidget *parent) :
     crossSectionWidget = standardCrossSections.get(0)->getForm();
 
 
-    //constructing initial beam and bending manipulator
-    //creating a beam, by constructing a material and a cross-section first...
+    //initializing the the models
+        //constructing initial beam, load and bending manipulator
 
     beam = new Beam(10, standardCrossSections.get(0), standardMaterials.get(0));
     load = new Load(beam, 1.5, 5);
-
-    ui->length->setValue(10);
-
     bendingManipulator = new CantileverBendingManipulator(beam, load);
 
+
+    //initializing the UI values
+    ui->length->setValue(10);
     ui->loadValue->setValue(1.5);
 
 
     bendingWidget = new shower(this, bendingManipulator);
+
     ui->beamBending->addWidget(bendingWidget);
     ui->crossSectionLayout->addWidget(crossSectionWidget, Qt::AlignTop);
 

@@ -7,6 +7,9 @@ RectangleForm::RectangleForm(Rectangle *rectangle, QWidget *parent) :
 {
     ui->setupUi(this);
     this->rectangle = rectangle;
+
+    ui->width->setValue(rectangle->getWidth());
+    ui->height->setValue(rectangle->getHeight());
 }
 
 RectangleForm::~RectangleForm()

@@ -10,6 +10,7 @@ public:
     double getInertiaAreaMoment();
     void constructForm(QWidget* parent = 0);
     void setRadius(double radius);
+    double getRadius() { return radius; }
 
 private:
     double radius;

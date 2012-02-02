@@ -12,6 +12,8 @@ public:
     void setSize(double width, double height);
     void setHeight(double height);
     void setWidth(double width);
+    double getHeight()  {return height;}
+    double getWidth() {return width;}
 
 private:
     double width;
