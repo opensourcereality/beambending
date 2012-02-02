@@ -14,7 +14,7 @@ double Circle::getInertiaAreaMoment()
 
 void Circle::constructForm(QWidget *parent)
 {
-    this->form = new CircleForm(parent);
+    this->form = new CircleForm(this, parent);
 }
 
 void Circle::setRadius(double radius)

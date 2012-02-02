@@ -2,7 +2,7 @@
 #include "ui_rectangleform.h"
 
 RectangleForm::RectangleForm(Rectangle *rectangle, QWidget *parent) :
-    QWidget(parent),
+    CrossSectionForm(parent),
     ui(new Ui::RectangleForm)
 {
     ui->setupUi(this);
@@ -17,10 +17,11 @@ RectangleForm::~RectangleForm()
 void RectangleForm::on_width_valueChanged(double arg1)
 {
     this->rectangle->setWidth(arg1);
+    emit crossSectionUpdated();
 }
 
 void RectangleForm::on_height_valueChanged(double arg1)
 {
     this->rectangle->setHeight(arg1);
-
+    emit crossSectionUpdated();
 }

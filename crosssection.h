@@ -2,19 +2,20 @@
 #define CROSSSECTION_H
 
 #include <QWidget>
-
+#include "crosssections/crosssectionform.h"
 
 class CrossSection
 {
-public:
-    CrossSection();
+
+
+public:    
     virtual double getInertiaAreaMoment() = 0;
     virtual void constructForm(QWidget* parent = 0) = 0;
     QString getName() { return name; }
-    QWidget *getForm(){ return form; }
+    CrossSectionForm *getForm(){ return form; }
 
 protected:
-    QWidget *form;
+    CrossSectionForm *form;
     QString name;
 };
 

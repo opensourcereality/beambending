@@ -29,8 +29,6 @@ void Rectangle::setHeight(double height)
     this->width = height;
 }
 
-
-
 void Rectangle::constructForm(QWidget *parent)
 {
     this->form = new RectangleForm(this, parent);

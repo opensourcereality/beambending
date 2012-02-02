@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
         CrossSection *cs = standardCrossSections.get(i);
         cs->constructForm();
         ui->crossSection->addItem(cs->getName());
+        QObject::connect(cs->getForm(), SIGNAL(crossSectionUpdated()), this, SLOT(update()));
     }
     crossSectionWidget = standardCrossSections.get(0)->getForm();
 
