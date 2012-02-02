@@ -34,8 +34,8 @@ public:
     bool setLoadPosition(double loadPosition);
     double getLoadPosition() const;
 
-    bool setLoadPositionRatio(double ratio);
-    double getLoadPositionRatio() const;
+    double position2ratio(double position);
+    double ratio2position(double ratio);
 
     bool isProperLoadPosition(double position);
 

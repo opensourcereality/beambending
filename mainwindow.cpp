@@ -43,9 +43,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     //initializing the UI values
-    ui->length->setValue(10);
-    ui->loadPositionBox->setValue(100);
-    ui->loadPositionBox->setValue(10);
+    setBeamLength(10);
+    setLoadPosition(beam->GetLength());
     ui->loadValue->setValue(1.5);
 
 
@@ -79,9 +78,7 @@ void MainWindow::on_loadValue_valueChanged(double arg1)
 
 void MainWindow::on_length_valueChanged(double arg1)
 {
-    beam->SetLength(arg1);
-    ui->loadPositionBox->setRange(0, beam->GetLength());
-    emit modelUpdated();
+    setBeamLength(arg1);
 }
 
 void MainWindow::on_material_currentIndexChanged(int index)
@@ -94,7 +91,7 @@ void MainWindow::on_material_currentIndexChanged(int index)
 void MainWindow::on_uniformLoad_clicked(bool checked)
 {
     if(checked) {
-        load->applyUniformLoad(ui->loadValue->value());
+        load->setLoadOptionUniform();
         ui->loadPosition->setDisabled(true);
         ui->loadPositionBox->setDisabled(true);
         emit modelUpdated();
@@ -104,7 +101,7 @@ void MainWindow::on_uniformLoad_clicked(bool checked)
 void MainWindow::on_singleLoad_clicked(bool checked)
 {
     if(checked){
-        load->applySingleLoad(ui->loadValue->value(), ui->loadPosition->value() * 0.01 * beam->GetLength());
+        load->setLoadOptionSingle();
         ui->loadPosition->setDisabled(false);
         ui->loadPositionBox->setDisabled(false);
         emit modelUpdated();
@@ -117,40 +114,51 @@ void MainWindow::on_crossSection_currentIndexChanged(int index)
         setCrossSection(index);
 }
 
+void MainWindow::on_loadPosition_sliderMoved(int position)
+{
+    setLoadPosition(load->ratio2position(position * 0.01));
+}
+
+void MainWindow::on_loadPositionBox_valueChanged(double arg1)
+{
+    setLoadPosition(arg1);
+}
+
 void MainWindow::updateBendingWidget()
 {
     bendingWidget->update();
 }
 
+
+//controllers
+void MainWindow::setBeamLength(double length)
+{
+    beam->SetLength(arg1);
+    ui->loadPositionBox->setRange(0, beam->GetLength());
+    emit modelUpdated();
+}
+
+void MainWindow::setLoadPosition(double position)
+{
+    if (load->setLoadPosition(position)) {
+        ui->loadPositionBox->setValue(load->getLoadPosition());
+        ui->loadPosition->setValue(load->position2ratio(position)* 100);
+        emit modelUpdated();
+    }
+}
+
 void MainWindow::setCrossSection(int index)
 {
 
+    //closing the previous cross section
     ui->crossSectionLayout->removeWidget(crossSectionWidget);
     crossSectionWidget->close();
 
+    //loading the new cross section
     beam->SetCrossSection(standardCrossSections.get(index));
     crossSectionWidget = standardCrossSections.get(index)->getForm();
-
     crossSectionWidget->show();
     ui->crossSectionLayout->addWidget(crossSectionWidget, Qt::AlignTop);
 
     emit modelUpdated();
-}
-
-void MainWindow::on_loadPosition_sliderMoved(int position)
-{
-    load->setLoadPosition(position * 0.01 * beam->GetLength());
-    ui->loadPositionBox->setValue(position * 0.01 * beam->GetLength());
-
-    emit modelUpdated();
-}
-
-void MainWindow::on_loadPositionBox_valueChanged(double arg1)
-{
-    load->setLoadPosition(arg1);
-    ui->loadPosition->setValue(arg1 / beam->GetLength() * 100);
-
-    emit modelUpdated();
-
-
 }
