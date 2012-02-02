@@ -93,7 +93,7 @@ double Load::position2ratio(double position) {
 }
 
 double  Load::ratio2position(double ratio) {
-    return ratio * 0.01 *beam->GetLength();
+    return ratio *beam->GetLength();
 }
 
 

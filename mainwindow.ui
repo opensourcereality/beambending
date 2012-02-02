@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>339</width>
-    <height>576</height>
+    <width>527</width>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,12 +44,6 @@
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
          <widget class="QGroupBox" name="groupBox">
-          <property name="maximumSize">
-           <size>
-            <width>180</width>
-            <height>16777215</height>
-           </size>
-          </property>
           <property name="title">
            <string>Beam Options</string>
           </property>
@@ -117,12 +111,6 @@
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_2">
-          <property name="maximumSize">
-           <size>
-            <width>180</width>
-            <height>116</height>
-           </size>
-          </property>
           <property name="title">
            <string>Fixing Options</string>
           </property>
@@ -160,12 +148,6 @@
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_4">
-          <property name="maximumSize">
-           <size>
-            <width>180</width>
-            <height>198</height>
-           </size>
-          </property>
           <property name="title">
            <string>Loading Options</string>
           </property>
@@ -222,12 +204,18 @@
                   </item>
                  </layout>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <layout class="QHBoxLayout" name="horizontalLayout_6">
                   <item>
                    <widget class="QSlider" name="loadPosition">
                     <property name="enabled">
                      <bool>false</bool>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>0</height>
+                     </size>
                     </property>
                     <property name="maximum">
                      <number>100</number>
@@ -252,6 +240,13 @@
                   </item>
                  </layout>
                 </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>Load Position</string>
+                  </property>
+                 </widget>
+                </item>
                </layout>
               </widget>
              </item>
@@ -271,7 +266,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>339</width>
+     <width>527</width>
      <height>25</height>
     </rect>
    </property>

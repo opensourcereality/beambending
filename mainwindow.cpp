@@ -134,7 +134,7 @@ void MainWindow::onCrossSectionUpdated()
 //controllers
 void MainWindow::setBeamLength(double length)
 {
-    beam->SetLength(arg1);
+    beam->SetLength(length);
     ui->loadPositionBox->setRange(0, beam->GetLength());
     emit modelUpdated();
 }
@@ -178,6 +178,20 @@ void MainWindow::setMaterial(int index)
     beam->SetMaterial(standardMaterials.get(index));
     ui->material->setCurrentIndex(index);
     emit modelUpdated();
+}
+
+void MainWindow::setLoadOptionUniform()
+{
+    load->setLoadOptionSingle();
+    ui->uniformLoad->setChecked(true);
+    ui->singleLoad->setChecked(false);
+}
+
+void MainWindow::setLoadOptionSingle()
+{
+    load->setLoadOptionSingle();
+    ui->uniformLoad->setChecked(false);
+    ui->singleLoad->setChecked(true);
 }
 
 
