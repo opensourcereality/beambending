@@ -30,23 +30,7 @@ int main(int argc, char *argv[])
     Beam *myBeam = new Beam(10, rectSection, aluminum);
     Load *myLoad = new Load(myBeam, 1.5);
 
-    BendingManipulator *myBender = new CantileverBendingManipulator(myBeam, myLoad);
-
-
-//    for (double i = 0; i < 10 ; i += 0.01)
-//    {
-//        cout << "test " << myBender->getDeflection(i) << endl;
-//    }
-
-    double result = myBender->getDeflection(9);
-
-    QVariant var(result);
-    cout << "result is:" << result << endl;
-
-    //shower beamShower(0, myBender);
-
-    //beamShower.show();
-
+    BendingManipulator *myBender = new CantileverBendingManipulator(myBeam, myLoad);   
 
     MainWindow myWindow;
     myWindow.show();
