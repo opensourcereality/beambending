@@ -20,11 +20,8 @@ public:
 
 private slots:
     void on_width_valueChanged(double arg1);
-
     void on_height_valueChanged(double arg1);
-
     void on_internalWidth_valueChanged(double arg1);
-
     void on_internalHeight_valueChanged(double arg1);
 
 private:

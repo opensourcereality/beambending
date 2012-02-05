@@ -32,26 +32,26 @@ void IBeamForm::setFormConstraints()
 
 void IBeamForm::on_width_valueChanged(double arg1)
 {
-    ui->width->setValue(arg1);
+    this->ibeam->SetWidth(arg1);
     setFormConstraints();
     emit crossSectionUpdated();
 }
 
 void IBeamForm::on_height_valueChanged(double arg1)
 {
-    ui->height->setValue(arg1);
+    this->ibeam->SetHeight(arg1);
     setFormConstraints();
     emit crossSectionUpdated();
 }
 
 void IBeamForm::on_internalWidth_valueChanged(double arg1)
 {
-    ui->internalWidth->setValue(arg1);
+    this->ibeam->SetInternalWidth(arg1);
     emit crossSectionUpdated();
 }
 
 void IBeamForm::on_internalHeight_valueChanged(double arg1)
 {
-    ui->internalHeight->setValue(arg1);
+    this->ibeam->SetInternalHeight(arg1);
     emit crossSectionUpdated();
 }

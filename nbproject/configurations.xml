@@ -9,6 +9,8 @@
         <in>circleform.h</in>
         <in>crosssectionform.cpp</in>
         <in>crosssectionform.h</in>
+        <in>ibeam.cpp</in>
+        <in>ibeam.h</in>
         <in>rectangle.cpp</in>
         <in>rectangle.h</in>
         <in>rectangleform.cpp</in>
