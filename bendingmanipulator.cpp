@@ -39,3 +39,11 @@ double BendingManipulator::getMaxMoment()
         return getMoment(beam->GetLength());
 }
 
+double BendingManipulator::getMaxStress()
+{
+    double c = beam->GetCrossSection()->getDiatanceFromNeutralAxis();
+    double I = beam->GetCrossSection()->getInertiaAreaMoment();
+
+    return (getMaxMoment() * c )/ I;
+}
+

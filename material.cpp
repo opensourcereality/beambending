@@ -1,6 +1,6 @@
 #include "material.h"
 
-Material::Material(QString name, double youngModulus)
+Material::Material(QString name, double youngModulus, double yeildStrees, double fractureStress)
 {
     this->name = name;
     this->youngModulus = youngModulus;

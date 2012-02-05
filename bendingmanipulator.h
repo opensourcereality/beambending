@@ -12,6 +12,7 @@ public:
     //virtual double getSlope(double x) = 0;
     double getMoment(double x);
     double getMaxMoment();
+    double getMaxStress();
     //virtual double getShearForce(double x) = 0;
     //virtual double getStress(double x) = 0;
     Beam *beam;

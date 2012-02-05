@@ -3,8 +3,16 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df name="beambending" root=".">
       <df name="crosssections">
+        <in>circle.cpp</in>
+        <in>circle.h</in>
+        <in>circleform.cpp</in>
+        <in>circleform.h</in>
+        <in>crosssectionform.cpp</in>
+        <in>crosssectionform.h</in>
         <in>rectangle.cpp</in>
         <in>rectangle.h</in>
+        <in>rectangleform.cpp</in>
+        <in>rectangleform.h</in>
       </df>
       <in>beam.cpp</in>
       <in>beam.h</in>
@@ -14,14 +22,23 @@
       <in>cantilever.h</in>
       <in>crosssection.cpp</in>
       <in>crosssection.h</in>
+      <in>load.cpp</in>
+      <in>load.h</in>
       <in>main.cpp</in>
       <in>mainwindow.cpp</in>
       <in>mainwindow.h</in>
       <in>material.cpp</in>
       <in>material.h</in>
-      <in>object.h</in>
+      <in>shower.cpp</in>
+      <in>shower.h</in>
       <in>simplesupportedbeam.cpp</in>
       <in>simplesupportedbeam.h</in>
+      <in>simplysupported.cpp</in>
+      <in>simplysupported.h</in>
+      <in>standardcrosssections.cpp</in>
+      <in>standardcrosssections.h</in>
+      <in>standardmaterials.cpp</in>
+      <in>standardmaterials.h</in>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

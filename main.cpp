@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
     //creating a beam, by constructing a material and a cross-section first...
     CrossSection *rectSection = new Rectangle(1,1);
-    Material *aluminum = new Material("Aluminum", 1.9);
+    Material *aluminum = new Material("Aluminum", 1.9, 1.9,1.9);
 
     Beam *myBeam = new Beam(10, rectSection, aluminum);
     Load *myLoad = new Load(myBeam, 1.5);
