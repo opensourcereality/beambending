@@ -29,7 +29,7 @@ void Rectangle::setHeight(double height)
     this->width = height;
 }
 
-void Rectangle::constructForm(QWidget *parent)
+void Rectangle::constructForm(double beamLength, QWidget *parent)
 {
-    this->form = new RectangleForm(this, parent);
+    this->form = new RectangleForm(this, beamLength, parent);
 }

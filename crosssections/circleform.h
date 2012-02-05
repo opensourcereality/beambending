@@ -13,7 +13,9 @@ class CircleForm : public CrossSectionForm
     Q_OBJECT
 
 public:
-    explicit CircleForm(Circle *circle, QWidget *parent = 0);
+    explicit CircleForm(Circle *circle, double beamLength, QWidget *parent = 0);
+    void setFormConstraints();
+
     ~CircleForm();
 
 private slots:

@@ -26,7 +26,7 @@ public:
     StandardCrossSections standardCrossSections;
     bool initialized;
     shower *bendingWidget;
-    QWidget *crossSectionWidget;
+    CrossSectionForm *crossSectionWidget;
 
 
     ~MainWindow();
@@ -46,6 +46,7 @@ private slots:
 
 signals:
     void modelUpdated();
+    void beamLengthChanged(double beamLength);
 
 
 

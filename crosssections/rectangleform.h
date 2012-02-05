@@ -15,7 +15,9 @@ class RectangleForm : public CrossSectionForm
     Q_OBJECT
 
 public:
-    explicit RectangleForm(Rectangle *rectangle, QWidget *parent = 0);
+    explicit RectangleForm(Rectangle *rectangle, double beamLength, QWidget *parent = 0);
+    void setFormConstraints();
+
     ~RectangleForm();
 
 private slots:

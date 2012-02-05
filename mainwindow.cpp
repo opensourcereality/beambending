@@ -18,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    //constants
+    const double beamLength = 10;
+
     //initializing the UI
     ui->setupUi(this);
 
@@ -27,9 +30,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     for (int i=0; i< standardCrossSections.count(); i++ ) {
         CrossSection *cs = standardCrossSections.get(i);
-        cs->constructForm();
+        cs->constructForm(beamLength);
         ui->crossSection->addItem(cs->getName());
         QObject::connect(cs->getForm(), SIGNAL(crossSectionUpdated()), this, SLOT(onCrossSectionUpdated()));
+        QObject::connect(this, SIGNAL(beamLengthChanged(double)), cs->getForm(), SLOT(onBeamLengthChanged(double)));
     }
     crossSectionWidget = standardCrossSections.get(0)->getForm();
 
@@ -44,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //initializing the model and UI values
 
         //beam options
-        setBeamLength(10);
+        setBeamLength(beamLength);
         setCrossSection();
         setMaterial();
 
@@ -52,7 +56,6 @@ MainWindow::MainWindow(QWidget *parent) :
         setLoadPosition(beam->GetLength());
         setLoadValue(1.5);
         setLoadOptionUniform();
-
 
     //initializaing and connecting widgets
     bendingWidget = new shower(this, bendingManipulator);
@@ -139,6 +142,7 @@ void MainWindow::setBeamLength(double length)
         ui->length->setValue(length);
         ui->loadPositionBox->setRange(0, beam->GetLength());
         emit modelUpdated();
+        emit beamLengthChanged(beam->GetLength());
     }
 }
 
@@ -161,6 +165,7 @@ void MainWindow::setCrossSection(int index)
     beam->SetCrossSection(standardCrossSections.get(index));
     crossSectionWidget = standardCrossSections.get(index)->getForm();
     crossSectionWidget->show();
+    crossSectionWidget->setBeamLength(beam->GetLength());
     ui->crossSectionLayout->addWidget(crossSectionWidget, Qt::AlignTop);
 
     ui->crossSection->setCurrentIndex(index);

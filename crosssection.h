@@ -10,7 +10,7 @@ class CrossSection
 
 public:    
     virtual double getInertiaAreaMoment() = 0;
-    virtual void constructForm(QWidget* parent = 0) = 0;
+    virtual void constructForm(double beamLength, QWidget* parent = 0) = 0;
     QString getName() { return name; }
     CrossSectionForm *getForm(){ return form; }
 

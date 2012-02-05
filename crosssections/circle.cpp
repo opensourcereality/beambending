@@ -12,9 +12,9 @@ double Circle::getInertiaAreaMoment()
     return 5/4 * (3.14) * radius * radius * radius * radius;
 }
 
-void Circle::constructForm(QWidget *parent)
+void Circle::constructForm(double beamLength, QWidget *parent)
 {
-    this->form = new CircleForm(this, parent);
+    this->form = new CircleForm(this, beamLength, parent);
 }
 
 void Circle::setRadius(double radius)
