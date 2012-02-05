@@ -11,6 +11,8 @@ public:
 private:
     double getUniformDeflection(double x);
     double getSingleDeflection(double x);
+    double getUniformMoment(double x);
+    double getSingleMoment(double x);
 };
 
 #endif // SIMPLYSUPPORTED_H

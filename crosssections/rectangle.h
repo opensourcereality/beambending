@@ -8,6 +8,7 @@ class Rectangle : public CrossSection
 public:
     Rectangle(double width, double height);
     double getInertiaAreaMoment();
+    double getDiatanceFromNeutralAxis();
     void constructForm(double beamLength, QWidget* parent = 0);
     void setSize(double width, double height);
     void setHeight(double height);

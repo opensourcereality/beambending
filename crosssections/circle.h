@@ -8,6 +8,7 @@ class Circle : public CrossSection
 public:
     Circle(double radius);
     double getInertiaAreaMoment();
+    double getDiatanceFromNeutralAxis();
     void constructForm(double beamLength, QWidget* parent = 0);
     void setRadius(double radius);
     double getRadius() { return radius; }

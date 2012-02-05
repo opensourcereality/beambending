@@ -21,3 +21,7 @@ void Circle::setRadius(double radius)
 {
     this->radius = radius;
 }
+
+double Circle::getDiatanceFromNeutralAxis()
+{
+}

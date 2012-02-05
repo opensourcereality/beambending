@@ -33,3 +33,8 @@ void Rectangle::constructForm(double beamLength, QWidget *parent)
 {
     this->form = new RectangleForm(this, beamLength, parent);
 }
+
+double Rectangle::getDiatanceFromNeutralAxis()
+{
+
+}

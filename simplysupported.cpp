@@ -12,6 +12,11 @@ double SimplySupportedBendingManipulator::getUniformDeflection(double x)
     return (load->getLoadValue() * x * (l * l * l - (2*x*x*l) + x * x * x))/(24 * I * E);
 }
 
+double SimplySupportedBendingManipulator::getUniformMoment(double x)
+{
+    return (1/2) * load->getLoadValue() * (beam->GetLength() - x) * x;
+}
+
 double SimplySupportedBendingManipulator::getSingleDeflection(double x)
 {
     double I = beam->GetMaterial()->GetYoungModulus(), E = beam->GetCrossSection()->getInertiaAreaMoment(), l = beam->GetLength();
@@ -25,3 +30,11 @@ double SimplySupportedBendingManipulator::getSingleDeflection(double x)
     else
         return -constant *a*(l-x)*((a*a) + (x*x) - 2*l*x);
 }
+
+double SimplySupportedBendingManipulator::getSingleMoment(double x)
+{
+
+}
+
+
+

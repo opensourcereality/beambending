@@ -31,3 +31,11 @@ double BendingManipulator::getMoment(double x)
 
 }
 
+double BendingManipulator::getMaxMoment()
+{
+    if(load->isSingleLoad())
+        return getMoment(load->getLoadPosition());
+    else
+        return getMoment(beam->GetLength());
+}
+
