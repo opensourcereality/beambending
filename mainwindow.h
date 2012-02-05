@@ -43,6 +43,7 @@ private slots:
     void on_loadPosition_sliderMoved(int position);
     void on_loadPositionBox_valueChanged(double arg1);
     void onCrossSectionUpdated();
+    void updateStressValues();
 
 signals:
     void modelUpdated();

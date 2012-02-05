@@ -14,7 +14,8 @@ double SimplySupportedBendingManipulator::getUniformDeflection(double x)
 
 double SimplySupportedBendingManipulator::getUniformMoment(double x)
 {
-    return (1/2) * load->getLoadValue() * (beam->GetLength() - x) * x;
+
+    return (0.5) * load->getLoadValue() * (beam->GetLength() - x) * x;
 }
 
 double SimplySupportedBendingManipulator::getSingleDeflection(double x)

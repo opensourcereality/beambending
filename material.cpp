@@ -4,6 +4,8 @@ Material::Material(QString name, double youngModulus, double yeildStrees, double
 {
     this->name = name;
     this->youngModulus = youngModulus;
+    this->yeildStrees = yeildStrees;
+    this->fractureStress = fractureStress;
 }
 
 void Material::SetYoungModulus(double youngModulus) {

@@ -58,11 +58,14 @@ MainWindow::MainWindow(QWidget *parent) :
         setLoadValue(1.5);
         setLoadOptionUniform();
 
+
     //initializaing and connecting widgets
     bendingWidget = new shower(this, bendingManipulator);
     ui->beamBending->addWidget(bendingWidget);
     ui->crossSectionLayout->addWidget(crossSectionWidget);
     QObject::connect(this, SIGNAL(modelUpdated()), this, SLOT(updateBendingWidget()));
+    QObject::connect(this, SIGNAL(modelUpdated()), this, SLOT(updateStressValues()));
+    updateStressValues();
 
     //variable used to disable invoking of some signals without the complete construction of the MainWindow
     initialized = true;
@@ -200,6 +203,13 @@ void MainWindow::setLoadOptionSingle()
     load->setLoadOptionSingle();
     ui->uniformLoad->setChecked(false);
     ui->singleLoad->setChecked(true);
+}
+
+void MainWindow::updateStressValues()
+{
+    ui->currentStress->setText(QString::number(bendingManipulator->getMaxStress()));
+    ui->yieldStress->setText(QString::number(beam->GetMaterial()->GetYeildStrees()));
+    ui->fractureStress->setText(QString::number(beam->GetMaterial()->GetFractureStress()));
 }
 
 
