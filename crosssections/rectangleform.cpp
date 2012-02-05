@@ -1,6 +1,5 @@
 #include "rectangleform.h"
 #include "ui_rectangleform.h"
-#include "mainwindow.h"
 
 RectangleForm::RectangleForm(Rectangle *rectangle, double beamLength, QWidget *parent) :
     CrossSectionForm(beamLength, parent),
