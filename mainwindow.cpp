@@ -184,7 +184,7 @@ void MainWindow::setMaterial(int index)
 
 void MainWindow::setLoadOptionUniform()
 {
-    load->setLoadOptionSingle();
+    load->setLoadOptionUniform();
     ui->uniformLoad->setChecked(true);
     ui->singleLoad->setChecked(false);
 }
