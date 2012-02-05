@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     load.cpp \
     crosssections/circle.cpp \
     crosssections/circleform.cpp \
-    crosssections/crosssectionform.cpp
+    crosssections/crosssectionform.cpp \
+    simplysupported.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -42,12 +43,15 @@ HEADERS  += mainwindow.h \
     load.h \
     crosssections/circle.h \
     crosssections/circleform.h \
-    crosssections/crosssectionform.h
+    crosssections/crosssectionform.h \
+    simplysupported.h
 
 FORMS    += mainwindow.ui \
     crosssections/rectangleform.ui \
     crosssections/circleform.ui \
     crosssections/crosssectionform.ui
+
+
 
 
 

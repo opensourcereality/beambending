@@ -8,6 +8,7 @@
 #include "beam.h"
 #include "bendingmanipulator.h"
 #include "cantilever.h"
+#include "simplysupported.h"
 #include "material.h"
 
 #include "shower.h"
@@ -43,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     beam = new Beam();
     load = new Load(beam);
-    bendingManipulator = new CantileverBendingManipulator(beam, load);
+    bendingManipulator = new SimplySupportedBendingManipulator(beam, load);
 
     //initializing the model and UI values
 
