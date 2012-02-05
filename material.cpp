@@ -19,6 +19,22 @@ QString Material::GetName() const
     return name;
 }
 
+void Material::SetFractureStress(double fractureStress) {
+    this->fractureStress = fractureStress;
+}
+
+double Material::GetFractureStress() const {
+    return fractureStress;
+}
+
+void Material::SetYeildStrees(double yeildStrees) {
+    this->yeildStrees = yeildStrees;
+}
+
+double Material::GetYeildStrees() const {
+    return yeildStrees;
+}
+
 void Material::SetName(QString name)
 {
     this->name = name;

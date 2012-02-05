@@ -10,8 +10,14 @@ Rectangle::Rectangle(double width, double height)
 }
 
 double Rectangle::getInertiaAreaMoment(){
-    return (width * height * height * height)/12;
+    return (width * height * height * height)/3;
 }
+
+double Rectangle::getDiatanceFromNeutralAxis()
+{
+    return (height / 2);
+}
+
 
 void Rectangle::setSize(double width, double height)
 {
@@ -34,7 +40,4 @@ void Rectangle::constructForm(double beamLength, QWidget *parent)
     this->form = new RectangleForm(this, beamLength, parent);
 }
 
-double Rectangle::getDiatanceFromNeutralAxis()
-{
 
-}
