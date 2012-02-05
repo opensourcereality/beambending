@@ -17,6 +17,7 @@ CircleForm::~CircleForm()
 
 void CircleForm::on_doubleSpinBox_valueChanged(double arg1)
 {
+    if (arg1)
     this->circle->setRadius(arg1);
     emit crossSectionUpdated();
 }

@@ -89,7 +89,6 @@ void MainWindow::on_uniformLoad_clicked(bool checked)
 {
     if(checked) {
         load->setLoadOptionUniform();
-        ui->loadPosition->setDisabled(true);
         ui->loadPositionBox->setDisabled(true);
         emit modelUpdated();
     }
@@ -99,7 +98,6 @@ void MainWindow::on_singleLoad_clicked(bool checked)
 {
     if(checked){
         load->setLoadOptionSingle();
-        ui->loadPosition->setDisabled(false);
         ui->loadPositionBox->setDisabled(false);
         emit modelUpdated();
     }
@@ -134,16 +132,18 @@ void MainWindow::onCrossSectionUpdated()
 //controllers
 void MainWindow::setBeamLength(double length)
 {
-    beam->SetLength(length);
-    ui->loadPositionBox->setRange(0, beam->GetLength());
-    emit modelUpdated();
+    if (length != 0) {
+        beam->SetLength(length);
+        ui->length->setValue(length);
+        ui->loadPositionBox->setRange(0, beam->GetLength());
+        emit modelUpdated();
+    }
 }
 
 void MainWindow::setLoadPosition(double position)
 {
     if (load->setLoadPosition(position)) {
         ui->loadPositionBox->setValue(load->getLoadPosition());
-        ui->loadPosition->setValue(load->position2ratio(position)* 100);
         emit modelUpdated();
     }
 }
