@@ -90,6 +90,7 @@ void MainWindow::on_uniformLoad_clicked(bool checked)
     if(checked) {
         load->setLoadOptionUniform();
         ui->loadPositionBox->setDisabled(true);
+        ui->loadPositionLabel->setDisabled(true);
         emit modelUpdated();
     }
 }
@@ -99,6 +100,7 @@ void MainWindow::on_singleLoad_clicked(bool checked)
     if(checked){
         load->setLoadOptionSingle();
         ui->loadPositionBox->setDisabled(false);
+        ui->loadPositionLabel->setDisabled(false);
         emit modelUpdated();
     }
 }
