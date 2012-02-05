@@ -10,7 +10,7 @@ public:
 
     double getDeflection(double x);
     //virtual double getSlope(double x) = 0;
-    //virtual double getMoment(double x) = 0;
+    double getMoment(double x);
     //virtual double getShearForce(double x) = 0;
     //virtual double getStress(double x) = 0;
     Beam *beam;
@@ -21,6 +21,9 @@ public:
 private:
     virtual double getUniformDeflection(double x) = 0;
     virtual double getSingleDeflection(double x) = 0;
+    virtual double getUniformMoment(double x) = 0;
+    virtual double getSingleMoment(double x) = 0;
+
 
 
 

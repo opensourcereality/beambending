@@ -14,14 +14,20 @@ BendingManipulator::BendingManipulator(Beam *beam, Load *load)
 double BendingManipulator::getDeflection(double x)
 {
 
-    if (load->isUniformLoad()){
-        cout << "Uniform";
-        return getUniformDeflection(x);
-    }
-    else {
-        cout << "Single!";
+    if (load->isUniformLoad())
+        return getUniformDeflection(x); 
+    else
         return getSingleDeflection(x);
-    }
+
+
+}
+
+double BendingManipulator::getMoment(double x)
+{
+    if (load->isUniformLoad())
+        return getUniformMoment(x);
+    else
+        return getSingleMoment(x);
 
 }
 

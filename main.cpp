@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     Beam *myBeam = new Beam(10, rectSection, aluminum);
     Load *myLoad = new Load(myBeam, 1.5);
 
-    BendingManipulator *myBender = new CantileverBendingManipulator(myBeam, myLoad);   
+    //BendingManipulator *myBender = new CantileverBendingManipulator(myBeam, myLoad);
 
     MainWindow myWindow;
     myWindow.show();
