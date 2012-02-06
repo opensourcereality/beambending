@@ -2,11 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "bendingmanipulator.h"
+
 #include "beam.h"
 #include "load.h"
+
+#include "standardbendingmanipulators.h"
 #include "standardmaterials.h"
 #include "standardcrosssections.h"
+
 #include "shower.h"
 
 namespace Ui {
@@ -22,8 +25,11 @@ public:
     Beam *beam;
     Load *load;
     BendingManipulator *bendingManipulator;
+
+    StandardBendingManipulators *standardBendingManipulators;
     StandardMaterials standardMaterials;
     StandardCrossSections standardCrossSections;
+
     bool initialized;
     shower *bendingWidget;
     CrossSectionForm *crossSectionWidget;
@@ -45,6 +51,12 @@ private slots:
     void onCrossSectionUpdated();
     void updateStressValues();
 
+    void on_cantiliver_clicked(bool checked);
+
+    void on_simplySupported_clicked(bool checked);
+
+    void on_mixedSupported_clicked(bool checked);
+
 signals:
     void modelUpdated();
     void beamLengthChanged(double beamLength);
@@ -62,6 +74,8 @@ private:
     void setLoadPosition(double position);
     void setLoadOptionUniform();
     void setLoadOptionSingle();
+
+    void setBendingManipulator(int index = 0);
 
 };
 

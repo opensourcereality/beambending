@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     beam = new Beam();
     load = new Load(beam);
-    bendingManipulator = new MixedSupportedBendingManipulator(beam, load);
+    standardBendingManipulators = new StandardBendingManipulators(beam, load);
 
     //initializing the model and UI values
 
@@ -58,6 +58,9 @@ MainWindow::MainWindow(QWidget *parent) :
         setLoadPosition(beam->GetLength());
         setLoadValue(1.5);
         setLoadOptionUniform();
+
+        //bending manipulator
+        setBendingManipulator();
 
 
     //initializaing and connecting widgets
@@ -131,6 +134,7 @@ void MainWindow::on_loadPositionBox_valueChanged(double arg1)
 
 void MainWindow::updateBendingWidget()
 {
+    bendingWidget->setBendingManipulator(bendingManipulator);
     bendingWidget->update();
 }
 
@@ -213,4 +217,38 @@ void MainWindow::updateStressValues()
     ui->fractureStress->setText(QString::number(beam->GetMaterial()->GetFractureStress()));
 }
 
+void MainWindow::setBendingManipulator(int index)
+{
+    bendingManipulator = standardBendingManipulators->get(index);
 
+    switch (index) {
+        case 0:
+            ui->cantiliver->setChecked(true);
+            break;
+        case 1:
+            ui->simplySupported->setChecked(true);
+            break;
+        case 2:
+            ui->mixedSupported->setChecked(true);
+            break;
+    }
+
+    emit modelUpdated();
+}
+
+
+
+void MainWindow::on_cantiliver_clicked(bool checked)
+{
+    setBendingManipulator(0);
+}
+
+void MainWindow::on_simplySupported_clicked(bool checked)
+{
+    setBendingManipulator(1);
+}
+
+void MainWindow::on_mixedSupported_clicked(bool checked)
+{
+    setBendingManipulator(2);
+}

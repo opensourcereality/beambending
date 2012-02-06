@@ -19,6 +19,8 @@ public:
     void setDrawResolution(double val = 1000);
     void setMagnificationFactor(double val = 50);
 
+    void setBendingManipulator(BendingManipulator *bendingManipulator) { myBender = bendingManipulator; }
+
     // getters
     double getIntialDrawingPointX();
     double getIntialDrawingPointY();
