@@ -108,7 +108,7 @@ void shower::paintEvent(QPaintEvent *event)
         double loadPos = myBender->load->getLoadPosition();
         QPointF tip;
         qreal tipX =  initialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
-        qreal tipY = initialDrawY + (myBender->getDeflection(loadPos)/60);
+        qreal tipY = initialDrawY + (myBender->getDeflection(loadPos));
         tip.setX(tipX);
         tip.setY(tipY);
         QPolygonF trianglePoints;
