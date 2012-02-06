@@ -11,7 +11,7 @@ public:
     double getDeflection(double x);
     //virtual double getSlope(double x) = 0;
     double getMoment(double x);
-    double getMaxMoment();
+    virtual double getMaxMoment() = 0;
     double getMaxStress();
     //virtual double getShearForce(double x) = 0;
     //virtual double getStress(double x) = 0;

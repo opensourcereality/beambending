@@ -42,5 +42,14 @@ double SimplySupportedBendingManipulator::getSingleMoment(double x)
         return p * a * (1 - (x/beam->GetLength()));
 }
 
+double SimplySupportedBendingManipulator::getMaxMoment()
+{
+
+    if(load->isUniformLoad())
+        return abs(getMoment(0.5 * beam->GetLength()));
+    else
+        return abs(getMoment(load->getLoadPosition()));
+}
+
 
 
