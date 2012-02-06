@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     crosssections/crosssectionform.cpp \
     simplysupported.cpp \
     crosssections/ibeam.cpp \
-    crosssections/ibeamform.cpp
+    crosssections/ibeamform.cpp \
+    mixedsupported.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -48,13 +49,16 @@ HEADERS  += mainwindow.h \
     crosssections/crosssectionform.h \
     simplysupported.h \
     crosssections/ibeam.h \
-    crosssections/ibeamform.h
+    crosssections/ibeamform.h \
+    mixedsupported.h
 
 FORMS    += mainwindow.ui \
     crosssections/rectangleform.ui \
     crosssections/circleform.ui \
     crosssections/crosssectionform.ui \
     crosssections/ibeamform.ui
+
+
 
 
 
