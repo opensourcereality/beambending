@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     //constants
-    const double beamLength = 10;
+    const double beamLength = 1;
 
     //initializing the UI
     ui->setupUi(this);
@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
         //loading options
         setLoadPosition(beam->GetLength());
-        setLoadValue(1.5);
+        setLoadValue(10);
         setLoadOptionUniform();
 
         //bending manipulator
@@ -82,7 +82,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_loadValue_valueChanged(double arg1)
 {
-    setLoadValue(arg1);
+    setLoadValue(arg1 * 10);
 }
 
 void MainWindow::on_length_valueChanged(double arg1)
@@ -185,7 +185,7 @@ void MainWindow::setCrossSection(int index)
 void MainWindow::setLoadValue(double loadValue)
 {
     load->setLoadValue(loadValue);
-    ui->loadValue->setValue(loadValue);
+    ui->loadValue->setValue(loadValue/10);
     emit modelUpdated();
 }
 

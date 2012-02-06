@@ -11,10 +11,10 @@ shower::shower(QWidget *parent, BendingManipulator *bender):
     QWidget(parent)
 {
     this->myBender = bender;
-    this->setFixedSize(700,350);
+    this->setFixedSize(700,400);
 
     // Setting visual parameteres
-    setIntialDrawingPoint(100,100);
+    setIntialDrawingPoint(100,50);
     setDrawResolution(1000);
     setMagnificationFactor(50);
 }
@@ -81,7 +81,7 @@ void shower::paintEvent(QPaintEvent *event)
         // we want to draw the beam 100 steps by drawing 1/100 of the beam every time using i the formula should change if i changes
         cout << "test " << myBender->getDeflection(i) << " i = " << i << endl;
         x2 = initialDrawX + (i*((visualBeamLength)/(drawResolution * drawStep)));
-        y2 = initialDrawY + (myBender->getDeflection(i));
+        y2 = initialDrawY + (myBender->getDeflection(i)*((visualBeamLength)/(drawResolution * drawStep)));
 
         painter.drawLine(x1, y1, x2, y2);
 

@@ -44,19 +44,12 @@
              <item>
               <widget class="QLabel" name="label_2">
                <property name="text">
-                <string>Length</string>
+                <string>Length (M)</string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QDoubleSpinBox" name="length"/>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_8">
-               <property name="text">
-                <string>Meters</string>
-               </property>
-              </widget>
              </item>
             </layout>
            </item>
@@ -141,7 +134,7 @@
              <item>
               <widget class="QLabel" name="label_5">
                <property name="text">
-                <string>Load Value</string>
+                <string>Load Value (kG)</string>
                </property>
               </widget>
              </item>
@@ -150,12 +143,8 @@
                <property name="maximum">
                 <double>3000.000000000000000</double>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_6">
-               <property name="text">
-                <string>Newton</string>
+               <property name="singleStep">
+                <double>0.100000000000000</double>
                </property>
               </widget>
              </item>

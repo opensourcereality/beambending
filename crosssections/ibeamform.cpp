@@ -26,8 +26,8 @@ void IBeamForm::setFormConstraints()
 {
     ui->width->setRange(getMinConstraint(), getMaxConstraint());
     ui->height->setRange(getMinConstraint(), getMaxConstraint());
-    ui->internalHeight->setRange(getMinConstraint(), ui->height->value()-0.5);
-    ui->internalWidth->setRange(getMinConstraint(), ui->width->value()-0.5);
+    ui->internalHeight->setRange(getMinConstraint(), ui->height->value()-0.001);
+    ui->internalWidth->setRange(getMinConstraint(), ui->width->value()-0.001);
 }
 
 void IBeamForm::on_width_valueChanged(double arg1)
