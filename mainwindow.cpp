@@ -212,9 +212,29 @@ void MainWindow::setLoadOptionSingle()
 
 void MainWindow::updateStressValues()
 {
-    ui->currentStress->setText(QString::number(bendingManipulator->getMaxStress()));
+    double maxStress = bendingManipulator->getMaxStress();
+
+    ui->currentStress->setText(QString::number(maxStress));
     ui->yieldStress->setText(QString::number(beam->GetMaterial()->GetYeildStrees()));
     ui->fractureStress->setText(QString::number(beam->GetMaterial()->GetFractureStress()));
+
+    QPalette red; red.setColor(QPalette::WindowText, Qt::red);
+    QPalette green; green.setColor(QPalette::WindowText, Qt::green);
+
+
+    //giving an alert when exceeding failure stresses
+    if (maxStress >= (beam->GetMaterial()->GetFractureStress()) ){
+        ui->fractureStressLabel->setPalette(red);
+    }
+    if(maxStress > (beam->GetMaterial()->GetYeildStrees()) ){
+        ui->yieldStressLabel->setPalette(red);
+        ui->currentStressLabel->setPalette(red);
+    }
+    else {
+        ui->currentStressLabel->setPalette(green);
+        ui->yieldStressLabel->setPalette(green);
+        ui->fractureStressLabel->setPalette(green);
+    }
 }
 
 void MainWindow::setBendingManipulator(int index)
