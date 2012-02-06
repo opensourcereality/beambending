@@ -99,7 +99,6 @@ void shower::paintEvent(QPaintEvent *event)
         pen.setColor(Qt::black); // setting pen color
         painter.setPen(pen); // setting pen
         painter.setBrush(brush); // setting brush
-        painter.drawRect(90, 90, 10, 20);
         painter.drawRect(initialDrawX-10, initialDrawY-10, 10, 20);
         break;
     case 1:
@@ -108,6 +107,7 @@ void shower::paintEvent(QPaintEvent *event)
         pen.setColor(Qt::black); // setting pen color
         painter.setPen(pen); // setting pen
         painter.setBrush(brush); // setting brush
+        painter.drawRect(initialDrawX-10, initialDrawY-10, 10, 20);
         painter.drawEllipse(QRectF(initialDrawX+visualBeamLength-5,initialDrawY,10,10));
         break;
     case 2:
@@ -138,6 +138,7 @@ void shower::paintEvent(QPaintEvent *event)
         QPolygonF trianglePoints;
         trianglePoints << QPointF(tip.x()-8,tip.y()-20) << tip << QPointF(tip.x()+8,tip.y()-20);
         painter.drawConvexPolygon(trianglePoints);
+        //painter.drawImage(10,10,SingleIndecator,);
     }
 
 }
