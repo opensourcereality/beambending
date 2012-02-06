@@ -11,7 +11,7 @@ shower::shower(QWidget *parent, BendingManipulator *bender):
     QWidget(parent)
 {
     this->myBender = bender;
-    this->setFixedSize(700,650);
+    this->setFixedSize(700,400);
 
     // Setting visual parameteres
     setIntialDrawingPoint(100,50);
