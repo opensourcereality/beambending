@@ -224,12 +224,15 @@ void MainWindow::setBendingManipulator(int index)
     switch (index) {
         case 0:
             ui->cantiliver->setChecked(true);
+            bendingManipulator->type = 0;
             break;
         case 1:
             ui->simplySupported->setChecked(true);
+            bendingManipulator->type = 1;
             break;
         case 2:
             ui->mixedSupported->setChecked(true);
+            bendingManipulator->type = 2;
             break;
     }
 

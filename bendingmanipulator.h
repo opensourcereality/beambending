@@ -18,6 +18,8 @@ public:
     Beam *beam;
     Load *load;
 
+    int type;
+
 
 
 private:
