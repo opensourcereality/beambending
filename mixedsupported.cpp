@@ -46,3 +46,16 @@ double MixedSupportedBendingManipulator::getSingleMoment(double x)
 
 }
 
+double MixedSupportedBendingManipulator::getMaxMoment()
+{
+    if(load->isUniformLoad())
+        return abs(getMoment(0));
+    else {
+        double a = load->getLoadPosition(), l = beam->GetLength();
+        if ( a < (0.5858*l) )
+            return abs(getMoment(0));
+        else
+            return abs(getMoment(a));
+    }
+}
+

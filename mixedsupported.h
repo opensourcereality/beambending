@@ -7,6 +7,8 @@ class MixedSupportedBendingManipulator : public BendingManipulator
 {
 public:
     MixedSupportedBendingManipulator(Beam *beam, Load *load);
+    double getMaxMoment();
+
 
 private:
     double getUniformDeflection(double x);

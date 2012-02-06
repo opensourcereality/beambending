@@ -42,7 +42,7 @@ double CantileverBendingManipulator::getSingleMoment(double x)
         return 0;
 }
 
-
-
-
-
+double CantileverBendingManipulator::getMaxMoment()
+{
+    return abs(getMoment(0));
+}

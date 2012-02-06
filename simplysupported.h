@@ -7,6 +7,8 @@ class SimplySupportedBendingManipulator : public BendingManipulator
 {
 public:
     SimplySupportedBendingManipulator(Beam *beam, Load *load);
+    double getMaxMoment();
+
 
 private:
     double getUniformDeflection(double x);

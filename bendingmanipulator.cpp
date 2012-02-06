@@ -28,13 +28,6 @@ double BendingManipulator::getMoment(double x)
         return getSingleMoment(x);
 }
 
-double BendingManipulator::getMaxMoment()
-{
-    if(load->isSingleLoad())
-        return abs(getMoment(beam->GetLength()));
-    else
-        return abs(getMoment(beam->GetLength() * 0.5));
-}
 
 double BendingManipulator::getMaxStress()
 {

@@ -8,6 +8,8 @@ class CantileverBendingManipulator : public BendingManipulator
 {
 public:
     CantileverBendingManipulator(Beam *beam, Load *load);
+    double getMaxMoment();
+
 
 private:
     double getUniformDeflection(double x);
