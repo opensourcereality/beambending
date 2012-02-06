@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     simplysupported.cpp \
     crosssections/ibeam.cpp \
     crosssections/ibeamform.cpp \
-    mixedsupported.cpp
+    mixedsupported.cpp \
+    standardbendingmanipulators.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -50,13 +51,16 @@ HEADERS  += mainwindow.h \
     simplysupported.h \
     crosssections/ibeam.h \
     crosssections/ibeamform.h \
-    mixedsupported.h
+    mixedsupported.h \
+    standardbendingmanipulators.h
 
 FORMS    += mainwindow.ui \
     crosssections/rectangleform.ui \
     crosssections/circleform.ui \
     crosssections/crosssectionform.ui \
     crosssections/ibeamform.ui
+
+
 
 
 
