@@ -25,6 +25,9 @@
      </item>
      <item row="0" column="1">
       <widget class="QDoubleSpinBox" name="width">
+       <property name="decimals">
+        <number>5</number>
+       </property>
        <property name="singleStep">
         <double>0.010000000000000</double>
        </property>
@@ -39,6 +42,9 @@
      </item>
      <item row="1" column="1">
       <widget class="QDoubleSpinBox" name="height">
+       <property name="decimals">
+        <number>5</number>
+       </property>
        <property name="singleStep">
         <double>0.010000000000000</double>
        </property>
@@ -54,10 +60,10 @@
      <item row="2" column="1">
       <widget class="QDoubleSpinBox" name="internalWidth">
        <property name="decimals">
-        <number>3</number>
+        <number>5</number>
        </property>
        <property name="singleStep">
-        <double>0.001000000000000</double>
+        <double>0.000100000000000</double>
        </property>
       </widget>
      </item>
@@ -71,10 +77,10 @@
      <item row="3" column="1">
       <widget class="QDoubleSpinBox" name="internalHeight">
        <property name="decimals">
-        <number>3</number>
+        <number>5</number>
        </property>
        <property name="singleStep">
-        <double>0.001000000000000</double>
+        <double>0.000100000000000</double>
        </property>
       </widget>
      </item>

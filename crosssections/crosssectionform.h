@@ -14,7 +14,7 @@ class CrossSectionForm : public QWidget
 public:
     explicit CrossSectionForm(double beamLength, QWidget *parent = 0);
     double getMaxConstraint() { return beamLength/4; }
-    double getMinConstraint() { return 0.0000001; }
+    double getMinConstraint() { return 0.001 ; }
     void setBeamLength(double beamLength) {this->beamLength = beamLength;}
     virtual void setFormConstraints() = 0;
     ~CrossSectionForm();
