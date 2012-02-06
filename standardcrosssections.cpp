@@ -12,5 +12,5 @@ StandardCrossSections::StandardCrossSections()
     crossSection = new CrossSection *[n];
     crossSection[0] = new Rectangle(0.01,0.01);
     crossSection[1] = new Circle(1);
-    crossSection[2] = new IBeam(1.5, 1.5, 0.5, 0.5);
+    crossSection[2] = new IBeam(0.01, 0.01, 0.001, 0.099);
 }

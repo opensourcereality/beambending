@@ -28,7 +28,7 @@ double MixedSupportedBendingManipulator::getSingleDeflection(double x)
     if( x < a )
         return constant*(x*x)*(a-l)*((3*l-x)*(a*a) +(2*l*a*(x-3*l)) + (2*l*l*x));
     else
-        return constant*(a*a)*(l-x)*( 3*l*x*(x-(2*l)) + a*(2*l*l + (2*x*l) - (x*x)) );
+        return constant*(a*a)*(x-l)*( 3*l*x*(x-(2*l)) + a*(2*l*l + (2*x*l) - (x*x)) );
 }
 
 double MixedSupportedBendingManipulator::getSingleMoment(double x)
