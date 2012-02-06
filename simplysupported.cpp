@@ -8,7 +8,7 @@ SimplySupportedBendingManipulator::SimplySupportedBendingManipulator(Beam *beam,
 
 double SimplySupportedBendingManipulator::getUniformDeflection(double x)
 {
-    double l = beam->GetLength(), I = beam->GetMaterial()->GetYoungModulus(), E = beam->GetCrossSection()->getInertiaAreaMoment();
+    double l = beam->GetLength(), E = beam->GetMaterial()->GetYoungModulus(), I = beam->GetCrossSection()->getInertiaAreaMoment();
     return (load->getLoadValue() * x * (l * l * l - (2*x*x*l) + x * x * x))/(24 * I * E);
 }
 

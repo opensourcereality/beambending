@@ -6,7 +6,7 @@
 class MixedSupportedBendingManipulator : public BendingManipulator
 {
 public:
-    MixedSupportedBendingManipulator();
+    MixedSupportedBendingManipulator(Beam *beam, Load *load);
 
 private:
     double getUniformDeflection(double x);

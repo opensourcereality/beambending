@@ -1,13 +1,12 @@
 #include "bendingmanipulator.h"
-#include <iostream>
+#include "cmath"
 using namespace std;
 
 BendingManipulator::BendingManipulator(Beam *beam, Load *load)
 {
     this->beam = beam;
-
     this->load = load;
-    cout << "from constructer, beam Length =" << beam->GetLength() << endl;
+
 }
 
 
@@ -19,7 +18,6 @@ double BendingManipulator::getDeflection(double x)
     else
         return getSingleDeflection(x);
 
-
 }
 
 double BendingManipulator::getMoment(double x)
@@ -28,15 +26,14 @@ double BendingManipulator::getMoment(double x)
         return getUniformMoment(x);
     else
         return getSingleMoment(x);
-
 }
 
 double BendingManipulator::getMaxMoment()
 {
     if(load->isSingleLoad())
-        return getMoment(beam->GetLength());
+        return abs(getMoment(beam->GetLength()));
     else
-        return getMoment(beam->GetLength() * 0.5);
+        return abs(getMoment(beam->GetLength() * 0.5));
 }
 
 double BendingManipulator::getMaxStress()
