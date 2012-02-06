@@ -34,7 +34,12 @@ double SimplySupportedBendingManipulator::getSingleDeflection(double x)
 
 double SimplySupportedBendingManipulator::getSingleMoment(double x)
 {
+    double a = load->getLoadPosition(), p = load->getLoadValue();
 
+    if (x < a)
+        return p * x * (1 - (a/beam->GetLength()));
+    else
+        return p * a * (1 - (x/beam->GetLength()));
 }
 
 

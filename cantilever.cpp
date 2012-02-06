@@ -12,6 +12,11 @@ double CantileverBendingManipulator::getUniformDeflection(double x)
     return (load->getLoadValue() * x * x * (6 * l * l - (4*x*l) + x * x))/(24 * I * E);
 }
 
+double CantileverBendingManipulator::getUniformMoment(double x)
+{
+    return 0.5 * load->getLoadValue() * (beam->GetLength() - x) * (beam->GetLength() - x);
+}
+
 double CantileverBendingManipulator::getSingleDeflection(double x)
 {
     double I = beam->GetMaterial()->GetYoungModulus(), E = beam->GetCrossSection()->getInertiaAreaMoment();
@@ -26,6 +31,18 @@ double CantileverBendingManipulator::getSingleDeflection(double x)
         return constant *(loadPosition * loadPosition)*(3*x - loadPosition);
 
 }
+
+double CantileverBendingManipulator::getSingleMoment(double x)
+{
+    double a = load->getLoadPosition();
+
+    if(x < a)
+        return load->getLoadValue() * a * (1 - (x/a));
+    else
+        return 0;
+}
+
+
 
 
 
