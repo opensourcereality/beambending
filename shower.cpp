@@ -3,6 +3,7 @@
 #include <QBrush>
 #include <QPointF>
 #include <QPolygonF>
+#include <QRectF>
 #include <iostream>
 using namespace std;
 
@@ -91,11 +92,34 @@ void shower::paintEvent(QPaintEvent *event)
     }
 
     // drawing suspension area (rectangle)
-    brush.setColor(Qt::black);
-    pen.setColor(Qt::black);
-    painter.setPen(pen);
-    painter.setBrush(brush);
-    painter.drawRect(90, 90, 10, 20);
+    switch(myBender->type){
+    case 0:
+        // cantilever
+        brush.setColor(Qt::black); // setting filling color
+        pen.setColor(Qt::black); // setting pen color
+        painter.setPen(pen); // setting pen
+        painter.setBrush(brush); // setting brush
+        painter.drawRect(90, 90, 10, 20);
+        painter.drawRect(initialDrawX-10, initialDrawY-10, 10, 20);
+        break;
+    case 1:
+        // simply supported
+        brush.setColor(Qt::black); // setting filling color
+        pen.setColor(Qt::black); // setting pen color
+        painter.setPen(pen); // setting pen
+        painter.setBrush(brush); // setting brush
+        painter.drawEllipse(QRectF(initialDrawX+visualBeamLength-5,initialDrawY,10,10));
+        break;
+    case 2:
+        // mixed supported
+        brush.setColor(Qt::black); // setting filling color
+        pen.setColor(Qt::black); // setting pen color
+        painter.setPen(pen); // setting pen
+        painter.setBrush(brush); // setting brush
+        painter.drawRect(initialDrawX-10, initialDrawY-10, 10, 20);
+        painter.drawRect(initialDrawX+visualBeamLength,initialDrawY-10,10,20);
+
+    }
 
 
     // Load position Indecator
