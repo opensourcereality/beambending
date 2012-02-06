@@ -51,6 +51,13 @@
              <item>
               <widget class="QDoubleSpinBox" name="length"/>
              </item>
+             <item>
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>Meters</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </item>
            <item>
@@ -142,6 +149,13 @@
               <widget class="QDoubleSpinBox" name="loadValue">
                <property name="maximum">
                 <double>3000.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>Newton</string>
                </property>
               </widget>
              </item>
@@ -320,16 +334,6 @@
      </layout>
     </item>
    </layout>
-   <zorder>label_4</zorder>
-   <zorder>currentStress</zorder>
-   <zorder>label_7</zorder>
-   <zorder>yieldStress</zorder>
-   <zorder>label_9</zorder>
-   <zorder>fractureStress</zorder>
-   <zorder>label_9</zorder>
-   <zorder>groupBox_5</zorder>
-   <zorder>fractureStress</zorder>
-   <zorder>yieldStress</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
