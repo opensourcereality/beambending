@@ -85,7 +85,7 @@ void shower::paintEvent(QPaintEvent *event)
 
         painter.drawLine(x1, y1, x2, y2);
 
-        cout << "x1 = " << x1 << " y1 = " << y1 << " x2 = "  << x2 << " y2 = " << y2 << " i: " << i << endl;
+        //cout << "x1 = " << x1 << " y1 = " << y1 << " x2 = "  << x2 << " y2 = " << y2 << " i: " << i << endl;
 
         x1 = x2;
         y1 = y2;
@@ -132,7 +132,8 @@ void shower::paintEvent(QPaintEvent *event)
         double loadPos = myBender->load->getLoadPosition();
         QPointF tip;
         qreal tipX =  initialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
-        qreal tipY = initialDrawY + (myBender->getDeflection(loadPos));
+        qreal tipY = initialDrawY + (myBender->getDeflection(loadPos)*((visualBeamLength)/(drawResolution * drawStep)));
+        cout << "load Pos: " << loadPos << "LoadDef" << myBender->getDeflection(loadPos) << endl;
         tip.setX(tipX);
         tip.setY(tipY);
         QPolygonF trianglePoints;
