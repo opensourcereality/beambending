@@ -26,21 +26,21 @@ void IBeamForm::setFormConstraints()
 {
     ui->width->setRange(getMinConstraint(), getMaxConstraint());
     ui->height->setRange(getMinConstraint(), getMaxConstraint());
-    ui->internalHeight->setRange(getMinConstraint(), ui->height->value()-0.001);
-    ui->internalWidth->setRange(getMinConstraint(), ui->width->value()-0.001);
+    ui->internalHeight->setRange(getMinConstraint(), getMaxConstraint());
+    ui->internalWidth->setRange(getMinConstraint(), getMaxConstraint());
 }
 
 void IBeamForm::on_width_valueChanged(double arg1)
 {
     this->ibeam->SetWidth(arg1);
-    setFormConstraints();
+    //setFormConstraints();
     emit crossSectionUpdated();
 }
 
 void IBeamForm::on_height_valueChanged(double arg1)
 {
     this->ibeam->SetHeight(arg1);
-    setFormConstraints();
+    //setFormConstraints();
     emit crossSectionUpdated();
 }
 
