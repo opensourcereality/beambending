@@ -92,6 +92,10 @@ void shower::paintEvent(QPaintEvent *event)
     }
 
     // drawing suspension area (rectangle)
+
+    QPolygonF leftTrianglePoints;
+    leftTrianglePoints << QPointF(initialDrawX-10,initialDrawY+10) << QPointF(initialDrawX,initialDrawY) << QPointF(initialDrawX+10,initialDrawY+10);
+
     switch(myBender->type){
     case 0:
         // cantilever
@@ -107,8 +111,10 @@ void shower::paintEvent(QPaintEvent *event)
         pen.setColor(Qt::black); // setting pen color
         painter.setPen(pen); // setting pen
         painter.setBrush(brush); // setting brush
-        painter.drawRect(initialDrawX-10, initialDrawY-10, 10, 20);
-        painter.drawEllipse(QRectF(initialDrawX+visualBeamLength-5,initialDrawY,10,10));
+
+
+        painter.drawPolygon(leftTrianglePoints); // drawing triangle on left
+        painter.drawEllipse(QRectF(initialDrawX+visualBeamLength-5,initialDrawY,10,10)); // drawing the circle on right
         break;
     case 2:
         // mixed supported
@@ -117,7 +123,7 @@ void shower::paintEvent(QPaintEvent *event)
         painter.setPen(pen); // setting pen
         painter.setBrush(brush); // setting brush
         painter.drawRect(initialDrawX-10, initialDrawY-10, 10, 20);
-        painter.drawRect(initialDrawX+visualBeamLength,initialDrawY-10,10,20);
+        painter.drawEllipse(QRectF(initialDrawX+visualBeamLength-5,initialDrawY,10,10)); // drawing the circle on right
 
     }
 
