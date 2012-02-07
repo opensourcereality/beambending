@@ -1,5 +1,7 @@
 #include "cantilever.h"
 #include "qmath.h"
+#include <iostream>
+using namespace std;
 
 CantileverBendingManipulator::CantileverBendingManipulator(Beam *beam, Load *load) :
     BendingManipulator(beam, load)
@@ -9,7 +11,9 @@ CantileverBendingManipulator::CantileverBendingManipulator(Beam *beam, Load *loa
 double CantileverBendingManipulator::getUniformDeflection(double x)
 {
     double l = beam->GetLength(), E = beam->GetMaterial()->GetYoungModulus(), I = beam->GetCrossSection()->getInertiaAreaMoment();
-    return (load->getLoadValue() * x  *x* (6 * l * l - (4*x*l) + x * x))/(24.0 * I * E);
+
+    cout << "max def = " << - (load->getLoadValue()* l*l*l*l)/(8*E*I) << "P: " << load->getLoadValue() << "l: " << beam->GetLength() << "E: " << beam->GetMaterial()->GetYoungModulus() << "I: " << beam->GetCrossSection()->getInertiaAreaMoment() << endl ;
+    return (load->getLoadValue() * x  *x * (6 * l * l - (4*x*l) + x * x))/(24.0 * I * E);
 }
 
 double CantileverBendingManipulator::getUniformMoment(double x)
