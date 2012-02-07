@@ -60,5 +60,4 @@ FORMS    += mainwindow.ui \
     crosssections/crosssectionform.ui \
     crosssections/ibeamform.ui
 
-RESOURCES += \
-    application.qrc
+
