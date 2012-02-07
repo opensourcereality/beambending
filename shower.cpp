@@ -131,7 +131,7 @@ void shower::paintEvent(QPaintEvent *event)
         double loadPos = myBender->load->getLoadPosition();
         QPointF tip;
         qreal tipX =  initialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
-        qreal tipY = initialDrawY + (myBender->getDeflection(loadPos));
+        qreal tipY = initialDrawY + (myBender->getDeflection(loadPos)*((visualBeamLength)/(drawResolution * drawStep)));
         cout << "load Pos: " << loadPos << "LoadDef" << myBender->getDeflection(loadPos) << endl;
         tip.setX(tipX);
         tip.setY(tipY);
