@@ -24,6 +24,9 @@ private slots:
     void on_width_valueChanged(double arg1);
     void on_height_valueChanged(double arg1);
 
+    void on_width_valueChanged(const QString arg1);
+    void on_height_valueChanged(const QString arg1);
+
 private:
     Ui::RectangleForm *ui;
     Rectangle *rectangle;

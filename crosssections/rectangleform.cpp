@@ -25,9 +25,21 @@ void RectangleForm::on_width_valueChanged(double arg1)
     emit crossSectionUpdated();
 }
 
-void RectangleForm::on_height_valueChanged(double arg1)
+void RectangleForm::on_height_valueChanged(double arg2)
 {
-    this->rectangle->setHeight(arg1);
+    this->rectangle->setHeight(arg2);
+    emit crossSectionUpdated();
+}
+
+void RectangleForm::on_width_valueChanged(const QString arg1)
+{
+    this->rectangle->setWidth(arg1.toDouble());
+    emit crossSectionUpdated();
+}
+
+void RectangleForm::on_height_valueChanged(const QString arg1)
+{
+    this->rectangle->setHeight(arg1.toDouble());
     emit crossSectionUpdated();
 }
 

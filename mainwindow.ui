@@ -134,14 +134,14 @@
              <item>
               <widget class="QLabel" name="label_5">
                <property name="text">
-                <string>Load Value (kG)</string>
+                <string>Load Value (N)</string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QDoubleSpinBox" name="loadValue">
                <property name="maximum">
-                <double>3000.000000000000000</double>
+                <double>10000000.000000000000000</double>
                </property>
                <property name="singleStep">
                 <double>0.100000000000000</double>

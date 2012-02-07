@@ -81,7 +81,7 @@ void shower::paintEvent(QPaintEvent *event)
         // we want to draw the beam 100 steps by drawing 1/100 of the beam every time using i the formula should change if i changes
         cout << "test " << myBender->getDeflection(i) << " i = " << i << endl;
         x2 = initialDrawX + (i*((visualBeamLength)/(drawResolution * drawStep)));
-        y2 = initialDrawY + (myBender->getDeflection(i)*((visualBeamLength)/(drawResolution * drawStep)));
+        y2 = initialDrawY + (myBender->getDeflection(i));
 
         painter.drawLine(x1, y1, x2, y2);
 
@@ -121,7 +121,6 @@ void shower::paintEvent(QPaintEvent *event)
 
     }
 
-
     // Load position Indecator
     if (myBender->load->isSingleLoad())
     {
@@ -132,7 +131,7 @@ void shower::paintEvent(QPaintEvent *event)
         double loadPos = myBender->load->getLoadPosition();
         QPointF tip;
         qreal tipX =  initialDrawX + (loadPos*((visualBeamLength)/(drawResolution * drawStep)));
-        qreal tipY = initialDrawY + (myBender->getDeflection(loadPos)*((visualBeamLength)/(drawResolution * drawStep)));
+        qreal tipY = initialDrawY + (myBender->getDeflection(loadPos));
         cout << "load Pos: " << loadPos << "LoadDef" << myBender->getDeflection(loadPos) << endl;
         tip.setX(tipX);
         tip.setY(tipY);

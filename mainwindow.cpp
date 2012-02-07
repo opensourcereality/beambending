@@ -82,7 +82,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_loadValue_valueChanged(double arg1)
 {
-    setLoadValue(arg1 * 10);
+    setLoadValue(arg1);
 }
 
 void MainWindow::on_length_valueChanged(double arg1)
@@ -185,7 +185,7 @@ void MainWindow::setCrossSection(int index)
 void MainWindow::setLoadValue(double loadValue)
 {
     load->setLoadValue(loadValue);
-    ui->loadValue->setValue(loadValue/10);
+    ui->loadValue->setValue(loadValue);
     emit modelUpdated();
 }
 
