@@ -134,7 +134,7 @@
              <item>
               <widget class="QLabel" name="label_5">
                <property name="text">
-                <string>Load Value (N)</string>
+                <string>Load Value (Kg)</string>
                </property>
               </widget>
              </item>
@@ -333,7 +333,7 @@
      <x>0</x>
      <y>0</y>
      <width>976</width>
-     <height>29</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
