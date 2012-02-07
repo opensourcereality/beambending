@@ -1,6 +1,8 @@
 #include "rectangle.h"
 #include "rectangleform.h"
 #include "math.h"
+#include <iostream>
+using namespace std;
 
 Rectangle::Rectangle(double width, double height)
 {
@@ -10,7 +12,9 @@ Rectangle::Rectangle(double width, double height)
 }
 
 double Rectangle::getInertiaAreaMoment(){
-    return (width * height * height * height)/3;
+    // taken from Wolfram demonstration, gives values matching efunda
+    cout << "width: " << width << " hight: " << height << endl;
+    return (width * height * height * height)/12;
 }
 
 double Rectangle::getDiatanceFromNeutralAxis()
